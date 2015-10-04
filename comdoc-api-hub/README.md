@@ -35,4 +35,4 @@ npm install machinepack-gravatar --save;
 sails lift
 ```
 
-..
+....
