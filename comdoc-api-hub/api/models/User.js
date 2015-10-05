@@ -101,6 +101,16 @@ module.exports = {
       type: 'date',
       required: true,
       defaultsTo: new Date()
+    },
+
+    suggestion_sheets: {
+      collection: 'Suggestion_sheet',
+      via: 'suggestion'
+    },
+
+    request_sheets: {
+      collection: 'Sheet',
+      via: 'request'
     }
 
   }
