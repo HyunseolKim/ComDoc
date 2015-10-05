@@ -83,7 +83,8 @@ module.exports = {
               username: req.param('username'),
               email: req.param('email'),
               encryptedPassword: encryptedPassword,
-              lastLoggedIn: new Date()
+              lastLoggedIn: new Date(),
+              gravatarUrl: gravatarUrl
             }, function userCreated(err, newUser) {
               if (err) {
 
