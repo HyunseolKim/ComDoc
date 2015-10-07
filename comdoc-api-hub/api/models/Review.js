@@ -12,7 +12,7 @@ module.exports = {
   tableName: 'Reviews',
 
   attributes: {
-    target: {
+    review_comment: {
       model: 'Sheet'
     },
 
