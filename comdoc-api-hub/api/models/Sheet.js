@@ -14,23 +14,25 @@ module.exports = {
   attributes: {
     suggestion_sheets: {
       collection: 'Suggestion_sheet',
-      via: 'suggestion'
+      via: 'suggest'
     },
 
     request: {
       model: 'User'
     },
 
-    review: {
+    review_comment: {
       model: 'Review'
     },
 
     location: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
 
     requester_phone: {
-      type: 'integer'
+      type: 'string',
+      required: true
     },
 
     computer_type: {

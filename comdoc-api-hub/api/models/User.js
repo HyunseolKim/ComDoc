@@ -17,13 +17,6 @@ module.exports = {
       defaultsTo: false,
     },
 
-    // The user's full name
-    // e.g. Nikola Tesla
-    name: {
-      type: 'string',
-      required: true
-    },
-
     // The user's username
     // e.g. Genius
     username: {
@@ -31,18 +24,10 @@ module.exports = {
       required: true
     },
 
-    // The user's type : user or company
-    type: {
-      type: 'string',
-      enum: ['user', 'company'],
-      defaultsTo: 'user',
-      required: true
-    },
-
     // The user's phone number
-    // e.g. 01090771639
+    // e.g. 010-9077-1639
     phone_number: {
-      type: 'integer',
+      type: 'string',
       required: true
     },
 
@@ -52,23 +37,6 @@ module.exports = {
       type: 'string',
       enum: ['서울시 동대문구', '서울시 강남구'],
       required: true
-    },
-
-    // The company's detail address
-    // e.g. 테헤란로 383 아남타워 6층
-    address: {
-      type: 'string'
-    },
-
-    // The company's detail description
-    // e.g. 우리 업체는 빠르고 신속한 출장수리를 보장합니다.
-    description: {
-      type: 'text'
-    },
-
-    avg_point: {
-      type: 'float',
-      defaultsTo: 0
     },
 
     // The user's email address
@@ -101,11 +69,6 @@ module.exports = {
       type: 'date',
       required: true,
       defaultsTo: new Date()
-    },
-
-    suggestion_sheets: {
-      collection: 'Suggestion_sheet',
-      via: 'suggestion'
     },
 
     request_sheets: {

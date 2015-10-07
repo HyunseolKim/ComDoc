@@ -12,12 +12,12 @@ module.exports = {
   tableName: 'Suggestion_Sheets',
 
   attributes: {
-    suggestion: {
+    suggest: {
       model: 'Sheet'
     },
 
-    company: {
-      model: 'User'
+    owner: {
+      model: 'Company'
     },
 
     expect_price: {
@@ -26,7 +26,7 @@ module.exports = {
     },
 
     expect_period: {
-      type: 'integer',
+      type: 'string',
       required: true
     },
 
