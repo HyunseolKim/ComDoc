@@ -1,0 +1,113 @@
+<div class="display">
+	<div class="slider-bg" backstretch backstretch-images="$parent.top.backstretch" backstretch-duration="10550" backstretch-fade="1"></div> 
+</div>
+<section class="container">
+     <timer ng-if="$parent.top.counter" class="countdown" end-time="1451628000000">
+		<span class="item item-dd">
+			<span class="dd">{{ days }}</span>
+			<span class="label label-dd">days</span>
+		</span>
+		<span class="separator separator-dd" style="display: none;">,</span>
+		<span class="item item-hh">
+			<span class="hh-1">{{ hours }}</span>
+			<span class="label label-hh">hours</span>
+		</span>
+		<span class="separator">:</span>
+		<span class="item item-mm">
+			<span class="mm-1">{{ minutes }}</span>
+			<span class="label label-mm">minutes</span>
+		</span>
+		<span class="separator">:</span>
+		<span class="item item-ss">
+			<span class="ss-1">{{ seconds }}</span>
+			<span class="label label-ss">seconds</span>
+		</span>
+    </timer>
+    <div class="login" ng-if="$parent.top.login" ng-controller="LoginController">
+        <form ng-submit="submitLoginForm()" class="login-panel top">
+
+              <!-- E M A I L -->
+              <h3>Sign In</h3>
+              <div class="form-group">
+                  <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
+              </div>
+
+              <!-- P A S S W O R D -->
+              <div class="form-group">
+                  <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
+              </div>
+
+              <!-- S U B M I T -->
+              <button type="submit" class="btn btn-success">
+                <span ng-show="!loginForm.loading">Sign in</span>
+                <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+                <span ng-show="loginForm.loading">Signing up...</span>
+              </button>
+              <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+          </form>
+    </div>
+    <div class="row pricing-top" ng-if="$parent.top.pricing">
+        <div ng-repeat="table in $parent.top.pricing" ng-class="table.width">
+            <div class="pricing-well">
+                <h2 ng-if="table.title">
+                    {{ table.title }}
+                </h2>
+                <ul class="pricing-top-list" ng-if="table.list">
+                    <li ng-repeat="list in table.list track by $index">{{ list }}</li>
+                </ul>
+                <hr>
+                <h3 ng-if="table.price">
+                    {{ table.price }}
+                </h3>
+                <hr>
+                <p ng-if="table.button">
+                    <a class="btn transparent" href="#">
+	                    {{ table.button }}
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <flex-slider ng-if="$parent.top.slider" fslide="item in $parent.top.slider track by $index" control-nav="false" direction-nav="false" slideshow-speed="10000">
+	   	<li>
+            <div class="row">
+		    	<div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+					<h1>{{ item.heading }}</h1>
+		            <p>{{ item.description }}</p>
+		    	</div>
+		    	<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+		    		<img class="img-responsive" ng-src="{{ item.image }}" alt="responsive" />
+		    	</div>
+            </div>
+        </li>
+	</flex-slider>
+	<div class="row" ng-if="$parent.top.title">
+		<div class="title">
+	        <h1>{{ $parent.top.title }} <span class="author" ng-if="$parent.top.date">{{ $parent.top.author }}</span><span class="date" ng-if="$parent.top.date">{{ $parent.top.date }}</span></h1>
+  	    </div>
+    </div>
+    <div class="row" ng-if="$parent.top.error">
+        <div class="error-span">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            	<div class="error-number">
+                	{{ $parent.top.error.number }}
+            	</div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+            	<div class="error-text">	
+            		<h3>{{ $parent.top.error.sub }}</h3>
+                    <p ng-bind-html="$parent.top.error.description"></p>
+                    <form action="#" ng-if="$parent.top.error.search">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Try Again..." /> <!-- Search Bar -->
+                            <div class="input-group-btn btn-group">
+                            	<button class="btn blue" style="line-height: 0.5px; height: 34px;">Search</button>
+							</div>
+                        </div>
+                    </form>
+            	</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="top"></section>
