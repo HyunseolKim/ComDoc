@@ -61,7 +61,7 @@ module.exports = {
     adminname: {
       type: 'string',
       required: true
-    }
+    },
 
     suggestion_sheets: {
       collection: 'Suggestion_sheet',
