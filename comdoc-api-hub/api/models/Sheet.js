@@ -1,0 +1,95 @@
+/**
+* Sheet.js
+*
+* @description :: TODO: You might write a short summary of how this model works and what it represents here.
+* @docs        :: http://sailsjs.org/#!documentation/models
+*/
+
+module.exports = {
+  // Enforce model schema in the case of schemaless databases
+  schema: true,
+  connection: 'someMysqlServer',
+  tableName: 'Sheets',
+
+  attributes: {
+    suggestion_sheets: {
+      collection: 'Suggestion_sheet',
+      via: 'suggest'
+    },
+
+    request: {
+      model: 'User'
+    },
+
+    review_comment: {
+      model: 'Review'
+    },
+
+    location: {
+      type: 'string',
+      required: true
+    },
+
+    requester_phone: {
+      type: 'string',
+      required: true
+    },
+
+    computer_type: {
+      type: 'string',
+      enum: ['데스크탑', '노트북'],
+      required: true
+    },
+
+    available_time: {
+      type: 'string',
+      required: true
+    },
+
+    trouble_type: {
+      type: 'string',
+      required: true
+    },
+
+    used_year: {
+      type: 'integer'
+    },
+
+    brand: {
+      type: 'string'
+    },
+
+    // 0: 연결중, 1: 연결완료, 2: 수리완료
+    matching_status: {
+      type: 'integer',
+      defaultsTo: 0
+    },
+
+    final_price: {
+      type: 'integer',
+      required: true
+    },
+
+    created_date: {
+      type: 'date',
+      required: true,
+      defaultsTo: new Date()
+    },
+
+    trouble_detail: {
+      type: 'text'
+    },
+
+    final_start_date: {
+      type: 'string',
+      required: true
+    },
+
+    final_end_date: {
+      type: 'string',
+      required: true
+    }
+
+  }
+};
+
