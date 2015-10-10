@@ -1,10 +1,12 @@
-package com.example.kahye.comdoc;
+package com.example.kahye.comdoc.ui;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.kahye.comdoc.R;
 
 /**
  * A placeholder fragment containing a simple view.
