@@ -19,8 +19,6 @@ module.exports = {
    		}, function foundCompany(err,company){
    			if(err) return res.negotiate(err);
    			if(!company) return res.nouFound();
-
-
    		})
    }
 };
