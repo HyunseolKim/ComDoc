@@ -29,27 +29,6 @@
                         <!-- SIGNUP FORM --> 
     <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
 
-        <!-- N A M E -->
-
-        <!-- checking whether the form "signup" with the "name" property is both $invalid AND $dirty.  If it is
-        insert the "has-error" class on the input field (i.e. insert a red border around the input field)
-        -->
-        <div class="control-group form-group col-md-12"
-        ng-class="{'has-error':signup.name.$invalid &&
-                              signup.name.$dirty}">
-          <label>Full Name</label>
-
-          <!-- For this input field make it required, and have a max length of 25 -->
-          <input type="text" class="form-control" placeholder="e.g. Nikola Tesla" name="name" ng-model="signupForm.name" ng-maxlength="50" required>
-
-          <!-- Also, if signup.name.$dirty is true, show the message depending upon the particular properties truthiness (e.g. required
-          and/or maxlength) -->
-          <span class="help-block has-error" ng-if="signup.name.$dirty">
-            <span ng-show="signup.name.$error.required">Name is required.</span>
-            <span ng-show="signup.name.$error.maxlength">The name cannot be more than 50 characters.</span>
-          </span>
-        </div>
-
         <!-- U S E R N A M E -->
 
         <div class="control-group form-group col-md-12"
@@ -73,6 +52,33 @@
           <span class="help-block has-error" ng-if="signup.email.$dirty">
             <span ng-show="signup.email.$error.required">Email address is required.</span>
             <span ng-show="signup.email.$error.email">Not a valid email address.</span>
+          </span>
+        </div>
+
+        <!-- P H O N E  N U M B E R -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.phone_number.$invalid &&
+                                signup.phone_number.$dirty}">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" placeholder="your phone number" name="phone_number" ng-model="signupForm.phone_number" ng-maxlength="13" required>
+          <span class="help-block has-error" ng-if="signup.phone_number.$dirty">
+            <span ng-show="signup.phone_number.$error.required">phone number is required.</span>
+            <span ng-show="signup.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+          </span>
+        </div>
+
+
+        <!-- L O C A T I O N -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.location.$invalid &&
+                                signup.location.$dirty}">
+          <label>Location</label>
+          <input type="text" class="form-control" placeholder="your location" name="location" ng-model="signupForm.location" ng-maxlength="50" required>
+          <span class="help-block has-error" ng-if="signup.location.$dirty">
+            <span ng-show="signup.location.$error.required">location is required.</span>
+            <span ng-show="signup.location.$error.maxlength">The location cannot be more than 50 characters.</span>
           </span>
         </div>
 
@@ -100,6 +106,7 @@
             <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
           </span>
         </div>
+
       </div>
 
       <br/>
