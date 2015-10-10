@@ -51,7 +51,7 @@ module.exports.routes = {
   'PUT /login': 'UserController.login',
   'GET /logout': 'UserController.logout',
 
-  'GET /loginAPI' : 'UserController.loginAPI'
+  // 'GET /loginAPI' : 'UserController.loginAPI'
 
 
 
