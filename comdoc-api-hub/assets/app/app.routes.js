@@ -87,6 +87,10 @@ app.config(function($routeProvider, $locationProvider){
         templateUrl: "app/views/misc/signup.tpl.html",
         controller: "SignupController"
     })
+    .when('/logout',{
+        redirectTo: '/',
+        controller: "LogoutController"
+    })
     .otherwise({redirectTo:'/'});
 	
     $locationProvider.html5Mode(true);
