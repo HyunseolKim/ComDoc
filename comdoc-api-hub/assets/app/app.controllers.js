@@ -141,110 +141,6 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 });
 app.controller('FooterController', function($scope, ROOT) {
 	$scope.brand = 'ComDoc';
-	$scope.menu = {
-		items: [
-			{
-			    link: ROOT+"/",
-			    name: "Home"
-			},
-			{
-			    link: ROOT+"/about",
-			    name: "About"
-			},
-			{
-				name: "Features",
-				dropdown: true,
-				items: [
-				    {
-					    link: ROOT+"/pricing",
-					    name: "Pricing"
-					},
-					{
-					    link: ROOT+"/blog",
-					    name: "Blog"
-					},
-					{
-					    link: ROOT+"/blogpost",
-					    name: "Blog Post"
-					},
-					{
-					    link: ROOT+"/portfolio",
-					    name: "Portfolio"
-					},
-					{
-					    link: ROOT+"/portfolioitem",
-					    name: "Portfolio Item"
-					},
-					{
-					    link: ROOT+"/comingsoon",
-					    name: "Coming Soon"
-					},
-					{
-					    link: ROOT+"/gallery",
-					    name: "Gallery"
-					},
-					{
-					    link: ROOT+"/404",
-					    name: "404"
-					},
-					{
-					    link: ROOT+"/500",
-					    name: "500"
-					},
-				]
-			},
-			{
-				name: "Pages",
-				dropdown: true,
-				items: [
-				    {
-					    link: ROOT+"/grid",
-					    name: "Grid"
-					},
-					{
-					    link: ROOT+"/typography",
-					    name: "Typography"
-					},
-					{
-					    link: ROOT+"/buttons",
-					    name: "Buttons"
-					},
-					{
-					    link: ROOT+"/tables",
-					    name: "Tables"
-					},
-					{
-					    link: ROOT+"/icons",
-					    name: "Icons"
-					},
-					{
-					    link: ROOT+"/forms",
-					    name: "Forms"
-					},
-					{
-					    link: ROOT+"/pagination",
-					    name: "Pagination"
-					},
-					{
-					    link: ROOT+"/components",
-					    name: "Components"
-					},
-				]
-			},
-			{
-			    link: ROOT+"/contact",
-			    name: "Contact"
-			},
-			{
-			    link: ROOT+"/login",
-			    name: "Login"
-			},
-			{
-			    link: ROOT+"/signup",
-			    name: "Signup"
-			}
-		]
-	}
 });
 
 app.controller('HomeController', function($scope, ROOT) {
@@ -400,7 +296,7 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     // If using sails-disk adpater -- Handle Duplicate Key
     var emailAddressAlreadyInUse = sailsResponse.status == 409;
 
-    if (emailAddressAlreadyInUse) {
+    if (true/*emailAddressAlreadyInUse*/) {
       toastr.error('That email address has already been taken, please try again.', 'Error');
       return;
     }

@@ -87,6 +87,14 @@ app.config(function($routeProvider, $locationProvider){
         templateUrl: "app/views/misc/signup.tpl.html",
         controller: "SignupController"
     })
+    .when('/signup-user',{
+        templateUrl: "app/views/misc/signup-user.tpl.html",
+        controller: "SignupController"
+    })
+    .when('/signup-company',{
+        templateUrl: "app/views/misc/signup-company.tpl.html",
+        controller: "SignupController"
+    })
     .when('/logout',{
         redirectTo: '/',
         controller: "LogoutController"
