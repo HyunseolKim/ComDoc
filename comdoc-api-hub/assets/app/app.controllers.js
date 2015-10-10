@@ -354,9 +354,10 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
 
     // Submit request to Sails.
     $http.post('/signup', {
-      name: $scope.signupForm.name,
       username: $scope.signupForm.username,
       email: $scope.signupForm.email,
+      phone_number: $scope.signupForm.phone_number,
+      location: $scope.signupForm.location,
       password: $scope.signupForm.password
     })
     .then(function onSuccess(sailsResponse){
