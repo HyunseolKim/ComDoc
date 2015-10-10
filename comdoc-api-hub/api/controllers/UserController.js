@@ -79,9 +79,10 @@ module.exports = {
           // Create a User with the params sent from
           // the sign-up form --> signup.ejs
             User.create({
-              name: req.param('name'),
               username: req.param('username'),
               email: req.param('email'),
+              phone_number: req.param('phone_number'),
+              location: req.param('location'),
               encryptedPassword: encryptedPassword,
               lastLoggedIn: new Date(),
               gravatarUrl: gravatarUrl

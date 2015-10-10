@@ -1,21 +1,31 @@
-package com.example.kahye.comdoc;
+package com.example.kahye.comdoc.ui;
 
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.kahye.comdoc.R;
+import com.example.kahye.comdoc.model.Example;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public List<Example> example;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +33,25 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         initNavi();
+        init();
 
     }
+
+    private void init() {
+        RecyclerView rv = (RecyclerView)findViewById(R.id.rv);
+        rv.setHasFixedSize(true);
+
+//        LinearLayoutManager llm = new LinearLayoutManager(context);
+//        rv.setLayoutManager(llm);
+//
+//        example = new ArrayList<>();
+//        example.add(new Example("Emma Wilson", "23 years old", R.drawable.ic_add_circle_black_24dp));
+//        example.add(new Example("Lavery Maiss", "25 years old", R.drawable.ic_add_circle_black_24dp));
+//        example.add(new Example("Lillie Watts", "35 years old", R.drawable.ic_add_circle_black_24dp));
+
+
+    }
+
 
     public void initNavi(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -103,4 +130,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
