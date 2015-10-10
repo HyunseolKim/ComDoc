@@ -10,6 +10,7 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 		$scope.isCollapsed = true;
 		$scope.progressbar.start();
 	});
+  $scope.user = localStorage.user;
 	$scope.menu = {
 		items: [
 			{
@@ -106,11 +107,27 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 			},
 			{
 			    link: ROOT+"/login",
-			    name: "Sign In"
+			    name: "Sign In",
+			    BeforeSignIn: true
 			},
 			{
 			    link: ROOT+"/signup",
-			    name: "Sign Up"
+			    name: "Sign Up",
+			    BeforeSignIn: true
+			},
+			{
+					link: ROOT+"/",
+					name: "My Page",
+					needAuth: true
+			},
+			{
+					link: ROOT+"/logout",
+					name: "Logout",
+					needAuth: true,
+					click: function () {
+						localStorage.removeItem('user');
+						window.location = '/';
+					},
 			}
 		]
 	}
@@ -123,7 +140,7 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 	};
 });
 app.controller('FooterController', function($scope, ROOT) {
-	$scope.brand = 'Sharp Vision';
+	$scope.brand = 'ComDoc';
 	$scope.menu = {
 		items: [
 			{
@@ -308,9 +325,11 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
       email: $scope.loginForm.email,
       password: $scope.loginForm.password
     })
-    .then(function onSuccess (){
+    .then(function onSuccess (res){
       // Refresh the page now that we've been logged in.
       window.location = '/';
+
+      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
     })
     .catch(function onError(sailsResponse) {
 
@@ -335,6 +354,18 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
       $scope.loginForm.loading = false;
     });
   };
+});
+
+app.controller('LogoutController', function($scope) {
+	// var vm = this;
+
+	// vm.logout = function () {
+	// 	localStorage.removeItem('user');
+	// 	$http.get('/logout').then(function onSuccess(sailsResponse){
+	// 	window.location = '/';
+	// 	})
+	// };
+
 });
 
 app.controller('SignupController', function($scope, $http, toastr, ROOT) {

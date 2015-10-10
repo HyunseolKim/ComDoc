@@ -42,13 +42,18 @@ module.exports = {
 
           // Store user id in the user session
           req.session.me = user.id;
+          req.session.user = user;
 
           // All done- let the client know that everything worked.
-          return res.ok();
+          return res.ok(user);
         }
       });
     });
 
+  },
+
+  me: function (req, res) {
+    return res.ok(req.session.user);
   },
 
   /**
@@ -136,6 +141,7 @@ module.exports = {
 
       // Wipe out the session (log out)
       req.session.me = null;
+      req.session.user = null;
 
       // Either send a 200 OK or redirect to the home page
       return res.backToHomePage();
