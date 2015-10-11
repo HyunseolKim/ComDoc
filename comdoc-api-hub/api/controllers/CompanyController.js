@@ -84,6 +84,9 @@ module.exports = {
               email: req.param('email'),
               phone_number: req.param('phone_number'),
               location: req.param('location'),
+              address: req.param('address'),
+              description: req.param('description'),
+              adminname: req.param('adminname'),
               encryptedPassword: encryptedPassword,
               lastLoggedIn: new Date(),
               gravatarUrl: gravatarUrl
