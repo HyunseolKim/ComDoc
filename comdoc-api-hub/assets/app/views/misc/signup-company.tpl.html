@@ -138,7 +138,7 @@
           ng-class="{'has-error':signup.adminname.$invalid &&
                                 signup.adminname.$dirty}">
           <label>* Administrator name</label>
-          <input type="text" class="form-control" placeholder="e.g. 홍길동" name="adminname" ng-model="signupForm.adminname" ng-maxlength="10" required>
+          <input type="text" class="form-control" placeholder="e.g. Smith" name="adminname" ng-model="signupForm.adminname" ng-maxlength="10" required>
           <span class="help-block has-error" ng-if="signup.adminname.$dirty">
             <span ng-show="signup.adminname.$error.required">admin name is required.</span>
             <span ng-show="signup.adminname.$error.maxlength">The admin name cannot be more than 10 characters.</span>

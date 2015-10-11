@@ -73,7 +73,7 @@
           ng-class="{'has-error':signup.username.$invalid &&
                                 signup.username.$dirty}">
           <label>* User Name</label>
-          <input type="text" class="form-control" placeholder="e.g. 홍길동" name="username" ng-model="signupForm.username" ng-maxlength="50" required>
+          <input type="text" class="form-control" placeholder="e.g. Superman" name="username" ng-model="signupForm.username" ng-maxlength="50" required>
           <span class="help-block has-error" ng-if="signup.username.$dirty">
             <span ng-show="signup.username.$error.required">username is required.</span>
             <span ng-show="signup.username.$error.maxlength">The name cannot be more than 50 characters.</span>

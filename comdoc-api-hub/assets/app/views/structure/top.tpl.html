@@ -37,6 +37,18 @@
                   <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
               </div>
 
+              <div class="form-group" >
+
+                <label class="radio">
+                  <input ng-model="loginForm.user" type="radio" name="optionsRadios" id="optionsRadios1" value="user" checked>
+                    User
+                </label>
+                  <label class="radio">
+                  <input ng-model="loginForm.company" type="radio" name="optionsRadios" id="optionsRadios2" value="company">
+                    Company
+                </label>
+              </div>
+
               <!-- S U B M I T -->
               <button type="submit" class="btn btn-success">
                 <span ng-show="!loginForm.loading">Sign in</span>

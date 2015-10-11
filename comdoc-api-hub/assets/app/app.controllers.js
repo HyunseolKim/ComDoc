@@ -216,39 +216,77 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
     // Set the loading state (i.e. show loading spinner)
     $scope.loginForm.loading = true;
 
-    // Submit request to Sails.
-    $http.put('/login', {
-      email: $scope.loginForm.email,
-      password: $scope.loginForm.password
-    })
-    .then(function onSuccess (res){
-      // Refresh the page now that we've been logged in.
-      window.location = '/';
+    if ($scope.loginForm.user) {
+    	// Submit request to Sails.
+	    $http.put('/login', {
+	      email: $scope.loginForm.email,
+	      password: $scope.loginForm.password
+	    })
+	    .then(function onSuccess (res){
+	      // Refresh the page now that we've been logged in.
+	      window.location = '/';
 
-      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
-    })
-    .catch(function onError(sailsResponse) {
+	      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	    })
+	    .catch(function onError(sailsResponse) {
 
-      // Handle known error type(s).
-      // Invalid username / password combination.
-      if (sailsResponse.status === 400 || 404) {
-        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
-        //
-        toastr.error('Invalid email/password combination.', 'Error', {
-          closeButton: true
-        });
-        return;
-      }
+	      // Handle known error type(s).
+	      // Invalid username / password combination.
+	      if (sailsResponse.status === 400 || 404) {
+	        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
+	        //
+	        toastr.error('Invalid email/password combination.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+	      }
 
-        toastr.error('An unexpected error occurred, please try again.', 'Error', {
-          closeButton: true
-        });
-        return;
+	        toastr.error('An unexpected error occurred, please try again.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
 
-    })
-    .finally(function eitherWay(){
-      $scope.loginForm.loading = false;
-    });
+	    })
+	    .finally(function eitherWay(){
+	      $scope.loginForm.loading = false;
+	    });
+    }
+
+    else {
+    	// Submit request to Sails.
+	    $http.put('/login_company', {
+	      email: $scope.loginForm.email,
+	      password: $scope.loginForm.password
+	    })
+	    .then(function onSuccess (res){
+	      // Refresh the page now that we've been logged in.
+	      window.location = '/';
+
+	      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	    })
+	    .catch(function onError(sailsResponse) {
+
+	      // Handle known error type(s).
+	      // Invalid username / password combination.
+	      if (sailsResponse.status === 400 || 404) {
+	        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
+	        //
+	        toastr.error('Invalid email/password combination.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+	      }
+
+	        toastr.error('An unexpected error occurred, please try again.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.loginForm.loading = false;
+	    });
+    }
   };
 });
 
@@ -279,32 +317,105 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     // Set the loading state (i.e. show loading spinner)
     $scope.signupForm.loading = true;
 
-    // Submit request to Sails.
-    $http.post('/signup', {
-      username: $scope.signupForm.username,
-      email: $scope.signupForm.email,
-      phone_number: $scope.signupForm.phone_number,
-      location: $scope.signupForm.location,
-      password: $scope.signupForm.password
-    })
-    .then(function onSuccess(sailsResponse){
+    if($scope.signupForm.username) {
+    	$http.post('/signup', {
+    		username: $scope.signupForm.username,
+	      email: $scope.signupForm.email,
+	      phone_number: $scope.signupForm.phone_number,
+	      location: $scope.signupForm.location,
+	      password: $scope.signupForm.password
+    	})
+    	.then(function onSuccess(sailsResponse){
       window.location = '/';
-    })
-    .catch(function onError(sailsResponse){
+	    })
+	    .catch(function onError(sailsResponse){
 
-    // Handle known error type(s).
-    // If using sails-disk adpater -- Handle Duplicate Key
-    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+	    // Handle known error type(s).
+	    // If using sails-disk adpater -- Handle Duplicate Key
+	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
 
-    if (true/*emailAddressAlreadyInUse*/) {
-      toastr.error('That email address has already been taken, please try again.', 'Error');
-      return;
+	    if (true/*emailAddressAlreadyInUse*/) {
+	      toastr.error('That email address has already been taken, please try again.', 'Error');
+	      return;
+	    }
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.signupForm.loading = false;
+	    })
     }
 
-    })
-    .finally(function eitherWay(){
-      $scope.signupForm.loading = false;
-    })
+    else {
+    	$http.post('/signup_company', {
+    		email: $scope.signupForm.email,
+    		password: $scope.signupForm.password,
+    		companyname: $scope.signupForm.companyname,
+    		location: $scope.signupForm.location,
+    		address: $scope.signupForm.address,
+    		adminname: $scope.signupForm.adminname,
+    		phone_number: $scope.signupForm.phone_number,
+    		description: $scope.signupForm.description
+    	})
+    	.then(function onSuccess(sailsResponse){
+      window.location = '/';
+	    })
+	    .catch(function onError(sailsResponse){
+
+	    // Handle known error type(s).
+	    // If using sails-disk adpater -- Handle Duplicate Key
+	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+
+	    if (true/*emailAddressAlreadyInUse*/) {
+	      toastr.error('That email address has already been taken, please try again.', 'Error');
+	      return;
+	    }
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.signupForm.loading = false;
+	    })
+    }
+
+    // // Submit request to Sails.
+    // $http.post('/signup', {
+    // 	if($scope.signupForm.username) {
+    // 		username: $scope.signupForm.username,
+	   //    email: $scope.signupForm.email,
+	   //    phone_number: $scope.signupForm.phone_number,
+	   //    location: $scope.signupForm.location,
+	   //    password: $scope.signupForm.password
+    // 	}
+
+    // 	else {
+    // 		email: $scope.signupForm.email,
+    // 		password: $scope.signupForm.password,
+    // 		companyname: $scope.signupForm.companyname,
+    // 		location: $scope.signupForm.location,
+    // 		address: $scope.signupForm.address,
+    // 		adminname: $scope.signupForm.adminname,
+    // 		phone_number: $scope.signupForm.phone_number,
+    // 		description: $scope.signupForm.description
+    // 	}
+      
+    // })
+    // .then(function onSuccess(sailsResponse){
+    //   window.location = '/';
+    // })
+    // .catch(function onError(sailsResponse){
+
+    // // Handle known error type(s).
+    // // If using sails-disk adpater -- Handle Duplicate Key
+    // var emailAddressAlreadyInUse = sailsResponse.status == 409;
+
+    // if (true/*emailAddressAlreadyInUse*/) {
+    //   toastr.error('That email address has already been taken, please try again.', 'Error');
+    //   return;
+    // }
+
+    // })
+    // .finally(function eitherWay(){
+    //   $scope.signupForm.loading = false;
+    // })
   }
 });
 
