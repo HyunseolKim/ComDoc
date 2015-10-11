@@ -14,16 +14,10 @@ module.exports = {
    */
   login: function (req, res) {
 
-    var condition = {};
-
-    if (req.phone) {
-      condition.phone = req.phone;
-    }
-    else {
-      condition.email = req.email;
-    }
     // Try to look up user using the provided email address
-    User.findOne(condition, function foundUser(err, user) {
+    User.findOne({
+      email: req.param('email')
+    }, function foundUser(err, user) {
       if (err) return res.negotiate(err);
       if (!user) return res.notFound();
 
