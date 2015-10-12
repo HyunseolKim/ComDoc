@@ -99,6 +99,18 @@ app.config(function($routeProvider, $locationProvider){
         redirectTo: '/',
         controller: "LogoutController"
     })
+    .when('/mypage',{
+        templateUrl: "app/views/misc/mypage-user.tpl.html",
+        controller: "MypageController"
+    })
+    .when('/mypage-user',{
+        templateUrl: "app/views/misc/mypage-user.tpl.html",
+        controller: "MypageUserController"
+    })
+    .when('/mypage-company',{
+        templateUrl: "app/views/misc/mypage-company.tpl.html",
+        controller: "MypageCompanyController"
+    })
     .otherwise({redirectTo:'/'});
 	
     $locationProvider.html5Mode(true);

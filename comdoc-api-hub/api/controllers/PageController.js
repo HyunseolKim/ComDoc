@@ -38,4 +38,8 @@ module.exports = {
     });
   },
 
+  showMyPage: function (req, res) {
+    
+  }
+
 };

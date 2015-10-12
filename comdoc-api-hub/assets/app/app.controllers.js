@@ -11,6 +11,7 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 		$scope.progressbar.start();
 	});
   $scope.user = localStorage.user;
+  $scope.company = localStorage.company;
 	$scope.menu = {
 		items: [
 			{
@@ -116,18 +117,34 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 			    BeforeSignIn: true
 			},
 			{
-					link: ROOT+"/",
+					link: ROOT+"/mypage-user",
 					name: "My Page",
-					needAuth: true
+					needAuth: true,
+					userPage: true
+			},
+			{
+					link: ROOT+"/mypage-company",
+					name: "My Page",
+					needAuth: true,
+					companyPage: true
 			},
 			{
 					link: ROOT+"/logout",
 					name: "Logout",
 					needAuth: true,
 					click: function () {
+						// if (localStorage.user) {
+						// 	localStorage.removeItem('user');
+						// 	localStorage.removeItem('company');
+						// }
+						// else {
+						// 	localStorage.removeItem('user');
+						// 	localStorage.removeItem('company');
+						// }
 						localStorage.removeItem('user');
+						localStorage.removeItem('company');
 						window.location = '/';
-					},
+					}
 			}
 		]
 	}
@@ -216,7 +233,7 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
     // Set the loading state (i.e. show loading spinner)
     $scope.loginForm.loading = true;
 
-    if ($scope.loginForm.user) {
+    if ($scope.loginForm.type == "user") {
     	// Submit request to Sails.
 	    $http.put('/login', {
 	      email: $scope.loginForm.email,
@@ -262,7 +279,7 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 	      // Refresh the page now that we've been logged in.
 	      window.location = '/';
 
-	      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	      localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
 	    })
 	    .catch(function onError(sailsResponse) {
 
@@ -345,7 +362,7 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
 	    })
     }
 
-    else {
+    else if ($scope.signupForm.companyname) {
     	$http.post('/signup_company', {
     		email: $scope.signupForm.email,
     		password: $scope.signupForm.password,
@@ -653,4 +670,43 @@ app.controller('PaginationController', function($scope) {
 });
 app.controller('ComponentsController', function($scope) {
 	// Stuff goes here!!!
+});
+
+app.controller('MypageController', function($scope, ROOT, $http) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		title: "MyPage",
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+	$http({
+		method: 'GET',
+		url: '/mypage-user'
+	}).then(function successCallback(res) {
+
+	}, function errorCallback(res) {
+
+	});
+});
+
+app.controller('MypageUserController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageCompanyController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
 });
