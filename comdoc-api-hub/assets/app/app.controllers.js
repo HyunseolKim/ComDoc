@@ -227,6 +227,9 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 		login: true,
 		backstretch: [ ROOT+'/assets/img/big/big-1.jpg' ]
 	};
+	$scope.loginForm = {
+		type: 'user'
+	};
 
 	$scope.submitLoginForm = function (){
 
