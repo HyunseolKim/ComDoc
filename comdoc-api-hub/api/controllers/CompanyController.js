@@ -140,6 +140,7 @@ module.exports = {
 
       // Wipe out the session (log out)
       req.session.me = null;
+      req.session.company = null;
 
       // Either send a 200 OK or redirect to the home page
       return res.backToHomePage();
