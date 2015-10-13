@@ -35,6 +35,9 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/login': {
+    view: 'homepage'
+  },
   '/signup': {
     view: 'homepage'
   },
@@ -81,8 +84,8 @@ module.exports.routes = {
   ////////////////////////////////////////////////////////////
 
   // User enrollment + authentication
-  'POST /signup': 'UserController.signup',
-  'POST /signup_company': 'CompanyController.signup',
+  'POST /signup/user': 'UserController.signup',
+  'POST /signup/company': 'CompanyController.signup',
   'POST /login': 'UserController.login', //for android
   'PUT /login': 'UserController.login',
   'PUT /login_company': 'CompanyController.login',
