@@ -338,7 +338,7 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     $scope.signupForm.loading = true;
 
     if($scope.signupForm.username) {
-    	$http.post('/signup', {
+    	$http.post('/signup/user', {
     		username: $scope.signupForm.username,
 	      email: $scope.signupForm.email,
 	      phone_number: $scope.signupForm.phone_number,
@@ -366,7 +366,7 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     }
 
     else if ($scope.signupForm.companyname) {
-    	$http.post('/signup_company', {
+    	$http.post('/signup/company', {
     		email: $scope.signupForm.email,
     		password: $scope.signupForm.password,
     		companyname: $scope.signupForm.companyname,
