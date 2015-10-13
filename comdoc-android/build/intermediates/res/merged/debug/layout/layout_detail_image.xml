@@ -3,4 +3,4 @@
     android:id="@+id/image"
     android:layout_width="match_parent"
     android:layout_height="@dimen/detail_view_image_height"
-    android:scaleType="fitXY" /><!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/layout/layout_detail_image.xml -->
+    android:scaleType="fitXY" /><!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/layout/layout_detail_image.xml -->

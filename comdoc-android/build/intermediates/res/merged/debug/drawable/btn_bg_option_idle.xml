@@ -4,4 +4,4 @@
         android:width="1dp"
         android:color="@color/detail_view_option_button_stroke_color" />
     <corners android:radius="100dp" />
-</shape><!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/drawable/btn_bg_option_idle.xml -->
+</shape><!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/drawable/btn_bg_option_idle.xml -->

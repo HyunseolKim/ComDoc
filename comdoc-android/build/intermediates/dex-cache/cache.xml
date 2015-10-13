@@ -2,200 +2,200 @@
 <items version="2" >
 
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-282b24ead6f5b5bbe8ca1c7891f30ba7e9d76bb8.jar" />
+        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-af180aed96ed893a19d211d476166ac53c0bff2e.jar" />
     </item>
     <item
         jar="/Users/Kahye/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.4.0/5b72bf48563ea8410e650de14aa33ff69a3e8c35/okio-1.4.0.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="5b72bf48563ea8410e650de14aa33ff69a3e8c35">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/okio-1.4.0-91ddb80d56e93e15279d52627af42195de4ac870.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/okio-1.4.0-91ddb80d56e93e15279d52627af42195de4ac870.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-1192013275324a574f1645faa90e53bfe223a07a.jar" />
     </item>
     <item
         jar="/Users/Kahye/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.9/386a4339ffe52d5d63e80f9bed8d2b1d1a418249/android-async-http-1.4.9.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/android-async-http-1.4.9-51e3979ee8436e55c4be5b9319c12295e0338f61.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/android-async-http-1.4.9-51e3979ee8436e55c4be5b9319c12295e0338f61.jar" />
     </item>
     <item
         jar="/Users/Kahye/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/picasso-2.5.2-e91c45ea2b462df30cb56d53e98af99925d5201d.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/picasso-2.5.2-e91c45ea2b462df30cb56d53e98af99925d5201d.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-69f327cda2b539267c9cea13f84476ac6a7b0c43.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-b2ea6a232e77670351ab0bf9f961fa69674bd3c8.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-a8d5beb4ce66d6b32473866ff01195058f7b329c.jar" />
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-646da9ee0f2fa3aba64208edf6ed66118648b512.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-18e00581eb86a24c4736a921411eeee07a1b8181.jar" />
+        sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-1da75e20283daf640920784ee05d70518474d2cb.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-04ec7f1bd5a6d78564c54ace8697dbaac64ed7d6.jar" />
     </item>
     <item
         jar="/Users/Kahye/.gradle/caches/modules-2/files-2.1/cz.msebera.android/httpclient/4.3.6/526a9f794eab830eae4f23a62c572878b3f491ab/httpclient-4.3.6.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/httpclient-4.3.6-2d4fa896597f4cc52901eb11ffcf69f9f29a4e62.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/httpclient-4.3.6-2d4fa896597f4cc52901eb11ffcf69f9f29a4e62.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-1391a15d2520b78c44db3286b657579d2a1e8b59.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-b51e8663dc85ee637e25d0e3f322b75a2dbd7b2d.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-e4ae0a302f1bd62ebcc6bd7c9c7e57a4477e27f9.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-0abb4f043faf9c2f94b4a9b6438c74611e50bfd7.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-d03079e36ef946c0838a94df22b0200e201f3c81.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-193747dd93811d26ba26425608461d1df822a281.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-5da931aede8be140ec449c89108962a8a9669eb1.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-5a205552742f9a426e5b4381df598a0af75fc149.jar" />
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-1ebc79d43d5f7aeb65923ab9d851e752a2004b05.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-8ea1e1b20572d4cf35f7284338cf5eb3cce105a0.jar" />
+        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-4d5f67bbea5b733e2b1768468ae33e4303ebcf76.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="055783146ba9654a725442563be78cad303aad1f">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-c90d8426784daa2771d00a261f6add0921fb638d.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-9511053292ccccfbe78e8004b3badc706df77dc2.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-4854744ab312eb330682fece0f940bf25319d562.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-74e533b22943e352e844fadfa994101e6f7d84cb.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-0deb8fdd3f6b8b28de64b0e42b6af37dbeb8edda.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-87fe5cc8a65893e857ddb46cb09e78bdff6383cc.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-f10f483b7fdab2543d938e4bb2ed3f06fc2e2850.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-493ac2a05251f23c5cc1c3293736df39d87a86c2.jar" />
-    </item>
-    <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-b83b49fe792df0a86f5629824f20903168e226d6.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-cf8b59fe873097e5ec5003dc307471259985bf13.jar" />
     </item>
     <item
         jar="/Users/Kahye/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-86a7700d912992661d9ba818e7b9e11aaceb5500.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-86a7700d912992661d9ba818e7b9e11aaceb5500.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-74fdb0df33a8ade4cba5f818b44b9c882069f5fb.jar" />
+        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-d1fd51a09f8881cc5d15ddcddbf9ee7bf28600ee.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-37efcdea996b5fc116df4391ca8a52a2bfa9823c.jar" />
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-df16fb416d80d1e7bb2cfef8e4c9b881c6d36fcc.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-e57daf808c33b50d103eadebd6752be60539ba98.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-a99772bda3ee43d620b9969856a4362f02e01414.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-1fe99536b0f882ed768c49b15c702583a7beb4a5.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-97695f246de0f8966c28f7fa8d23e5e2e739669c.jar" />
     </item>
     <item
         jar="/Users/Kahye/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="40340c0748190fe897baf7bffbc1b282734294e5">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/okhttp-2.4.0-637ba7639044de44e482d553ce053bbb54c5739a.jar" />
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/okhttp-2.4.0-637ba7639044de44e482d553ce053bbb54c5739a.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-f54802440a278a0e42f71bb6a680c9411d12ec7f.jar" />
+        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-7a717d8d9c99a71d0aae36cd3e79d30419090a2d.jar" />
     </item>
     <item
-        jar="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.0.0/jars/classes.jar"
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.0.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/pre-dexed/debug/classes-aa28d8b258f4a0703069991f04ca5f24cedb65f9.jar" />
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-ecacf7620e8191f00d8d8348d7dbe422b75e3a5d.jar" />
+    </item>
+    <item
+        jar="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
+        <dex dex="/Users/Kahye/Downloads/comdoc/1. Source Code/finder1_android_prototype_app/build/intermediates/pre-dexed/debug/classes-7332ab26ac7846a09d52b1b63d56d434e08f367d.jar" />
     </item>
 
 </items>

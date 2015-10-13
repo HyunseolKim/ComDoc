@@ -237,12 +237,11 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
         param.put("email", mobileNumber);
         param.put("password", password);
-
         StringEntity entity=new StringEntity(param.toString());
         mHttpClient.post("http://40.74.139.156:1337/login", param, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        Toast.makeText(getApplicationContext(), statusCode,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "토스트메시지입니다.",Toast.LENGTH_SHORT).show();
                         signInCompleteListener.onSignInComplete();
                         startActivity(new Intent(SignInActivity.this, HomeActivity.class));
                         finish();
@@ -250,6 +249,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
                     @Override
                     public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        //Log.e("POST요청 에러",  "" + e.getMessage());
                         Toast.makeText(getApplicationContext(), "fial.",Toast.LENGTH_SHORT).show();
                     }
                 });

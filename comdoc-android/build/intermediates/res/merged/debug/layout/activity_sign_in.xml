@@ -42,7 +42,7 @@
             android:id="@+id/etMobileNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_phone_number"
+            android:hint="@string/hint_email"
             android:textColorHint="@color/hint_color_green" />
 
         <View
@@ -133,4 +133,4 @@
     </LinearLayout>
 
 
-</LinearLayout><!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/layout/activity_sign_in.xml -->
+</LinearLayout><!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/layout/activity_sign_in.xml -->

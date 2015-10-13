@@ -8,4 +8,4 @@
     android:gravity="right"
     android:singleLine="true"
     android:textColor="@drawable/clickable_text_bg"
-    android:textSize="@dimen/value_18sp" /><!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/layout/list_item_spinner.xml -->
+    android:textSize="@dimen/value_18sp" /><!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/layout/list_item_spinner.xml -->

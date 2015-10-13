@@ -2,4 +2,4 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/btn_bg_fill_selection_idle_white_stroke" android:state_pressed="false" />
     <item android:drawable="@drawable/btn_bg_fill_selection_tap" android:state_pressed="true" />
-</selector><!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/drawable/btn_bg_fill_selection_white_stroke.xml -->
+</selector><!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/drawable/btn_bg_fill_selection_white_stroke.xml -->

@@ -149,8 +149,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void initRequest() {
         RequestParams param = new RequestParams();
 
-        param.put("username", "test@gmail.com");
-        param.put("email", "123123");
+        param.put("username", "test");
+        param.put("email", "cjddkrns@gmail.com");
         param.put("phone_number", "123123");
         param.put("location", "서울시 강남구");
         param.put("password", "123123");
