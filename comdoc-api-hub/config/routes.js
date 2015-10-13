@@ -35,6 +35,37 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/signup': {
+    view: 'homepage'
+  },
+  '/signin': {
+    view: 'homepage'
+  },
+  '/about': {
+    view: 'homepage'
+  },
+  '/contact': {
+    view: 'homepage'
+  },
+  '/mypage/user': {
+    view: 'homepage'
+  },
+  '/mypage/user/sheet': {
+    view: 'homepage'
+  },
+  '/mypage/user/sheet/detail': {
+    view: 'homepage'
+  },
+  '/mypage/company': {
+    view: 'homepage'
+  },
+  '/mypage/company/sheet': {
+    view: 'homepage'
+  },
+  '/mypage/company/sheet/detail': {
+    view: 'homepage'
+  },
+
 
   ////////////////////////////////////////////////////////////
   // Server-rendered HTML webpages
@@ -53,6 +84,8 @@ module.exports.routes = {
   'PUT /login': 'UserController.login',
   'PUT /login_company': 'CompanyController.login',
   'GET /logout': 'UserController.logout',
+  
+
 
 
   'GET /loginAPI' : 'UserController.loginAPI'

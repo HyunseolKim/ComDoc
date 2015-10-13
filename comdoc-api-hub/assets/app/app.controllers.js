@@ -117,13 +117,13 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 			    BeforeSignIn: true
 			},
 			{
-					link: ROOT+"/mypage-user",
+					link: ROOT+"/mypage/user",
 					name: "My Page",
 					needAuth: true,
 					userPage: true
 			},
 			{
-					link: ROOT+"/mypage-company",
+					link: ROOT+"/mypage/company",
 					name: "My Page",
 					needAuth: true,
 					companyPage: true
@@ -675,25 +675,6 @@ app.controller('ComponentsController', function($scope) {
 	// Stuff goes here!!!
 });
 
-app.controller('MypageController', function($scope, ROOT, $http) {
-	$scope.Root = ROOT;
-	$scope.top = {
-		title: "MyPage",
-		backstretch: [ 
-			ROOT+'/assets/img/big/big-3.jpg',
-			ROOT+'/assets/img/big/big-5.jpg'
-		]
-	};
-	$http({
-		method: 'GET',
-		url: '/mypage-user'
-	}).then(function successCallback(res) {
-
-	}, function errorCallback(res) {
-
-	});
-});
-
 app.controller('MypageUserController', function($scope, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
@@ -713,3 +694,41 @@ app.controller('MypageCompanyController', function($scope, ROOT) {
 		]
 	};
 });
+
+app.controller('MypageUserSheetController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+	$scope.userSheetForm = {
+		loading: false
+	};
+
+	$scope.submitUserSheetForm = function() {
+
+	}
+});
+
+app.controller('MypageCompanySheetController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+})

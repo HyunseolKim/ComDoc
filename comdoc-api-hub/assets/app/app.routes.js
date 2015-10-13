@@ -84,32 +84,40 @@ app.config(function($routeProvider, $locationProvider){
         controller: "LoginController"
     })
     .when('/signup',{
-        templateUrl: "app/views/misc/signup.tpl.html",
+        templateUrl: "app/views/misc/signup/signup.tpl.html",
         controller: "SignupController"
     })
-    .when('/signup-user',{
-        templateUrl: "app/views/misc/signup-user.tpl.html",
+    .when('/signup/user',{
+        templateUrl: "app/views/misc/signup/signup-user.tpl.html",
         controller: "SignupController"
     })
-    .when('/signup-company',{
-        templateUrl: "app/views/misc/signup-company.tpl.html",
+    .when('/signup/company',{
+        templateUrl: "app/views/misc/signup/signup-company.tpl.html",
         controller: "SignupController"
     })
     .when('/logout',{
         redirectTo: '/',
         controller: "LogoutController"
     })
-    .when('/mypage',{
-        templateUrl: "app/views/misc/mypage-user.tpl.html",
-        controller: "MypageController"
-    })
-    .when('/mypage-user',{
-        templateUrl: "app/views/misc/mypage-user.tpl.html",
+    .when('/mypage/user',{
+        templateUrl: "app/views/misc/mypage/user/mypage-user.tpl.html",
         controller: "MypageUserController"
     })
-    .when('/mypage-company',{
-        templateUrl: "app/views/misc/mypage-company.tpl.html",
+    .when('/mypage/company',{
+        templateUrl: "app/views/misc/mypage/company/mypage-company.tpl.html",
         controller: "MypageCompanyController"
+    })
+    .when('/mypage/user/sheet',{
+        templateUrl: "app/views/misc/mypage/user/mypage-user-sheet.tpl.html",
+        controller: "MypageUserSheetController"
+    })
+    .when('/mypage/company/sheet',{
+        templateUrl: "app/views/misc/mypage/company/mypage-company-sheet.tpl.html",
+        controller: "MypageCompanySheetController"
+    })
+    .when('/mypage/user/sheet/detail',{
+        templateUrl: "app.views/misc/mypage/user/mypage-user-sheet-detail.tpl.html",
+        controller: "MypageUserSheetDetailController"
     })
     .otherwise({redirectTo:'/'});
 	

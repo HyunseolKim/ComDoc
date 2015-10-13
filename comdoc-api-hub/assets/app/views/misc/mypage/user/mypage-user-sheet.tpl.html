@@ -1,0 +1,135 @@
+<div class="top-parallax medium" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>My Page - User</h2>
+                </div>
+                <div class="content-panel">
+                  <p>
+                    <a class="btn btn-large btn-block btn-info" href="{{ Root }}/mypage/user">내 견적 정보</a>
+                  </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
+                <div class="content-panel">
+                <form ng-submit="submitUserSheetForm()" name="userSheet">
+
+                    <!-- E M A I L -->
+
+                    <div class="control-group form-group col-md-12"
+                    ng-class="{'has-error':userSheet.email.$invalid &&
+                                          userSheet.email.$dirty}">
+                      <label>* 연락처</label>
+                      <input type="email" class="form-control" placeholder="010-1234-5678" name="email" ng-model="userSheetForm.email" required >
+                      <span class="help-block has-error" ng-if="userSheet.email.$dirty">
+                        <span ng-show="userSheet.email.$error.required">Email address is required.</span>
+                        <span ng-show="userSheet.email.$error.email">Not a valid email address.</span>
+                      </span>
+                    </div>
+
+                    <!-- P A S S W O R D -->
+
+                    <div class="control-group form-group col-md-12"
+                    ng-class="{'has-error':userSheet.password.$invalid &&
+                                          userSheet.password.$dirty}">
+                      <label>* Password</label>
+                      <!-- Added the compareTo directive that compares the passowrds -->
+                      <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="userSheetForm.password" id="password" required ng-minlength="6" compare-to="userSheetForm.confirmPassword" >
+                      <span class="help-block has-error" ng-if="userSheet.password.$dirty">
+                        <span ng-show="userSheet.password.$error.required">Password is required.</span>
+                        <span ng-show="userSheet.password.$error.minlength">Password must be at least 6 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- C O N F I R M  P A S S W O R D -->
+
+                    <div class="control-group form-group col-md-12">
+                      <label>* Password Again</label>
+                      <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="userSheetForm.confirmPassword" required>
+                      <span class="help-block has-error" ng-if="userSheet.confirmation.$dirty">
+                        <span ng-show="userSheet.password.$error.compareTo">Password must match.</span>
+                        <span ng-show="userSheet.confirmation.$error.required">Confirmation password is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- U S E R N A M E -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.username.$invalid &&
+                                            userSheet.username.$dirty}">
+                      <label>* User Name</label>
+                      <input type="text" class="form-control" placeholder="e.g. Superman" name="username" ng-model="userSheetForm.username" ng-maxlength="50" required>
+                      <span class="help-block has-error" ng-if="userSheet.username.$dirty">
+                        <span ng-show="userSheet.username.$error.required">username is required.</span>
+                        <span ng-show="userSheet.username.$error.maxlength">The name cannot be more than 50 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- L O C A T I O N -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.location.$invalid &&
+                                            userSheet.location.$dirty}">
+                      <label>* Location</label>
+                      <select class="form-control" name="location" ng-model="userSheetForm.location" required>
+                        <option>서울시 강남구</option>
+                        <option>서울시 강동구</option>
+                        <option>서울시 강북구</option>
+                        <option>서울시 강서구</option>
+                        <option>서울시 관악구</option>
+                        <option>서울시 광진구</option>
+                        <option>서울시 구로구</option>
+                        <option>서울시 금천구</option>
+                        <option>서울시 노원구</option>
+                        <option>서울시 도봉구</option>
+                        <option>서울시 동대문구</option>
+                        <option>서울시 동작구</option>
+                        <option>서울시 마포구</option>
+                        <option>서울시 서대문구</option>
+                        <option>서울시 서초구</option>
+                        <option>서울시 성동구</option>
+                        <option>서울시 성북구</option>
+                        <option>서울시 송파구</option>
+                        <option>서울시 양천구</option>
+                        <option>서울시 영등포구</option>
+                        <option>서울시 용산구</option>
+                        <option>서울시 은평구</option>
+                        <option>서울시 종로구</option>
+                        <option>서울시 중구</option>
+                        <option>서울시 중랑구</option>
+                      </select>
+                      <span class="help-block has-error" ng-if="userSheet.location.$dirty">
+                        <span ng-show="userSheet.location.$error.required">location is required.</span>
+                      </span>
+                    </div>
+
+                    <!-- P H O N E  N U M B E R -->
+
+                    <div class="control-group form-group col-md-12"
+                      ng-class="{'has-error':userSheet.phone_number.$invalid &&
+                                            userSheet.phone_number.$dirty}">
+                      <label>* Phone Number</label>
+                      <input type="text" class="form-control" placeholder="e.g. 010-0000-0000" name="phone_number" ng-model="userSheetForm.phone_number" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="userSheet.phone_number.$dirty">
+                        <span ng-show="userSheet.phone_number.$error.required">phone number is required.</span>
+                        <span ng-show="userSheet.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+                      </span>
+                    </div>
+
+                    <!-- Disable submit button until the form has no errors -->
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="userSheet.$invalid">
+                      <span ng-show="!userSheetForm.loading">Create Account</span>
+                      <span class="overlord-loading-spinner fa fa-spinner" ng-show="userSheetForm.loading" ></span>
+                      <span ng-show="userSheetForm.loading">Preparing your new account...</span>
+                    </button>
+
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</article>
