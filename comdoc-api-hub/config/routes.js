@@ -59,10 +59,13 @@ module.exports.routes = {
   '/mypage/company': {
     view: 'homepage'
   },
-  '/mypage/company/sheet': {
+  '/mypage/company/request_sheet': {
     view: 'homepage'
   },
   '/mypage/company/sheet/detail': {
+    view: 'homepage'
+  },
+  '/mypage/company/request_sheet/detail': {
     view: 'homepage'
   },
 

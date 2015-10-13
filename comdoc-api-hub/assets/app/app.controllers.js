@@ -713,7 +713,7 @@ app.controller('MypageUserSheetController', function($scope, ROOT) {
 	}
 });
 
-app.controller('MypageCompanySheetController', function($scope, ROOT) {
+app.controller('MypageCompanyRequestSheetController', function($scope, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -731,4 +731,24 @@ app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
 			ROOT+'/assets/img/big/big-5.jpg'
 		]
 	};
-})
+});
+
+app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageCompanyRequestSheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});

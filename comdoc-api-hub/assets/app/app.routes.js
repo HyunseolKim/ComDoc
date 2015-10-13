@@ -111,13 +111,21 @@ app.config(function($routeProvider, $locationProvider){
         templateUrl: "app/views/misc/mypage/user/mypage-user-sheet.tpl.html",
         controller: "MypageUserSheetController"
     })
-    .when('/mypage/company/sheet',{
-        templateUrl: "app/views/misc/mypage/company/mypage-company-sheet.tpl.html",
-        controller: "MypageCompanySheetController"
+    .when('/mypage/company/request_sheet',{
+        templateUrl: "app/views/misc/mypage/company/mypage-company-requestSheet.tpl.html",
+        controller: "MypageCompanyRequestSheetController"
     })
     .when('/mypage/user/sheet/detail',{
         templateUrl: "app/views/misc/mypage/user/mypage-user-sheet-detail.tpl.html",
         controller: "MypageUserSheetDetailController"
+    })
+    .when('/mypage/company/sheet/detail',{
+        templateUrl: "app/views/misc/mypage/company/mypage-company-sheet-detail.tpl.html",
+        controller: "MypageCompanySheetDetailController"
+    })
+    .when('/mypage/company/request_sheet/detail',{
+        templateUrl: "app/views/misc/mypage/company/mypage-company-requestSheet-detail.tpl.html",
+        controller: "MypageCompanyRequestSheetDetailController"
     })
     .otherwise({redirectTo:'/'});
 	
