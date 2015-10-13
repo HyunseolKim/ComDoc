@@ -758,7 +758,8 @@ app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
 	    .finally(function eitherWay(){
 	      $scope.sheetForm.loading = false;
 	    })
-    }
+    	}
+	}
 });
 
 app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
