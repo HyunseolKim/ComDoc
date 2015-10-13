@@ -65,7 +65,7 @@ public class PostBusinessActivity extends Activity implements View.OnClickListen
         etCompanyName = (FloatLabel) findViewById(R.id.etCompanyName);
         etContactPersonName = (FloatLabel) findViewById(R.id.etContactPersonName);
         etDistrictName = (FloatLabel) findViewById(R.id.etDistrictName);
-        etMobileNumber = (FloatLabel) findViewById(R.id.etMobileNumber);
+        etMobileNumber = (FloatLabel) findViewById(R.id.etEmail);
         etEmail = (FloatLabel) findViewById(R.id.etEmail);
         this.findViewById(R.id.btnSubmit).setOnClickListener(this);
 

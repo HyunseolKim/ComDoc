@@ -42,7 +42,7 @@ public class ForgetPasswordActivity extends Activity implements View.OnClickList
         setContentView(R.layout.activity_forget_password);
         findViewById(R.id.btnReset).setOnClickListener(this);
         findViewById(R.id.crossImgView).setOnClickListener(this);
-        etMobileNumber = (FloatLabel) findViewById(R.id.etMobileNumber);
+        etMobileNumber = (FloatLabel) findViewById(R.id.etEmail);
         etMobileNumber.getEditText().setTextColor(getResources().getColor(R.color.post_business_edit_text_color));
         etMobileNumber.getEditText().setOnFocusChangeListener(setPhoneCodeListener(this));
         etMobileNumber.getEditText().setOnKeyListener(new View.OnKeyListener() {

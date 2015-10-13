@@ -72,7 +72,7 @@
                 android:background="@color/post_business_bar_color" />
 
             <com.audacityit.finder.util.FloatLabel
-                android:id="@+id/etMobileNumber"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_mobile_number"

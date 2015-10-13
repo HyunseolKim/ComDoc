@@ -464,6 +464,7 @@ available. Please contact the developer for assistance.</string>
     <string name="hint_contact_person">Contact Person*</string>
     <string name="hint_district_name">District</string>
     <string name="hint_email">Email</string>
+    <string name="hint_etPhoneNum">Phone Number</string>
     <string name="hint_full_name">Full Name</string>
     <string name="hint_mobile_number">Mobile No*</string>
     <string name="hint_mobile_number_">Mobile Number</string>

@@ -44,7 +44,7 @@ public class ProfileUpdateActivity extends Activity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_update);
-        etMobileNumber = (FloatLabel) findViewById(R.id.etMobileNumber);
+        etMobileNumber = (FloatLabel) findViewById(R.id.etEmail);
         etFullName = (FloatLabel) findViewById(R.id.etFullName);
         etEmail = (FloatLabel) findViewById(R.id.etEmail);
         findViewById(R.id.crossImgView).setOnClickListener(this);

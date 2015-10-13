@@ -39,10 +39,10 @@
         android:paddingRight="@dimen/value_40dp">
 
         <com.audacityit.finder.util.FloatLabel
-            android:id="@+id/etMobileNumber"
+            android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_phone_number"
+            android:hint="@string/hint_email"
             android:textColorHint="@color/hint_color_green" />
 
         <View

@@ -14,27 +14,16 @@ import static com.audacityit.finder.util.Validator.setPhoneCodeListener;
 import com.loopj.android.http.*;
 
 import java.io.IOException;
-import java.net.URI;
-        import java.util.*;
-        import org.apache.http.*;
-        import org.apache.http.client.*;
-        import org.apache.http.client.entity.*;
-        import org.apache.http.client.methods.*;
-        import org.apache.http.client.utils.URIUtils;
-        import org.apache.http.client.utils.URLEncodedUtils;
+
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.*;
-        import org.apache.http.message.*;
-        import org.apache.http.protocol.*;
-        import org.apache.http.util.*;
-        import android.app.*;
+
+import android.app.*;
 import android.content.Context;
 import android.content.Intent;
 import android.os.*;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
-import android.util.*;
-        import android.view.*;
+import android.view.*;
         import android.widget.*;
 
 import com.audacityit.finder.R;
@@ -43,7 +32,6 @@ import com.audacityit.finder.util.FloatLabel;
 import com.audacityit.finder.util.UtilMethods;
 import com.loopj.android.http.AsyncHttpClient;
 
-import cz.msebera.android.httpclient.*;
 import cz.msebera.android.httpclient.Header;
 
 /**
@@ -56,7 +44,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
     private static SignInCompleteListener signInCompleteListener;
     private final int SIGNED_IN_ACTION = 1;
-    private FloatLabel etMobileNumber;
+    private FloatLabel etEmail;
     private FloatLabel etPassword;
     private boolean isUserCanceled = false;
     private UtilMethods.InternetConnectionListener internetConnectionListener;
@@ -80,15 +68,15 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
         findViewById(R.id.btnForgotPasswordTV).setOnClickListener(this);
 
 
-        etMobileNumber = (FloatLabel) findViewById(R.id.etMobileNumber);
+        etEmail = (FloatLabel) findViewById(R.id.etEmail);
         etPassword = (FloatLabel) findViewById(R.id.etPassword);
         etPassword.getEditText().setTransformationMethod(new PasswordTransformationMethod());
-        etMobileNumber.getEditText().setOnFocusChangeListener(setPhoneCodeListener(this));
-        etMobileNumber.getEditText().setOnKeyListener(new View.OnKeyListener() {
+        etEmail.getEditText().setOnFocusChangeListener(setPhoneCodeListener(this));
+        etEmail.getEditText().setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (etMobileNumber.getEditText().getText().length() <=
+                    if (etEmail.getEditText().getText().length() <=
                             getResources().getText(R.string.mobile_country_code).length()) {
                         return true;
                     }
@@ -124,7 +112,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
                 if (isInputValid()) {
                     if (isConnectedToInternet(SignInActivity.this)) {
                         try {
-                            doLoginRequest(etMobileNumber.getEditText().getText().toString(),
+                            doLoginRequest(etEmail.getEditText().getText().toString(),
                                     etPassword.getEditText().getText().toString());
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -161,10 +149,10 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
         }
     }
 
-    private void doLoginRequest(String mobileNumber, String password) throws IOException {
+    private void doLoginRequest(String email, String password) throws IOException {
         User user = new User();
         user.setId("1"); //dummy
-        user.setPhoneNumber(mobileNumber);
+        user.setPhoneNumber(email);
         user.setName("User"); // dummy value
         user.setEmail("user@email.com");
 //        try {
@@ -176,13 +164,13 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
 //        //GET으로 데이터 전송
 //        Properties prop = new Properties();
-//        prop.setProperty(mobileNumber, password);
+//        prop.setProperty(email, password);
 //
 //       // String encodedString = encodeString(prop);
 //
 //
 //        String path = "http://40.74.139.156:1337/login?email=\"";
-//                path += mobileNumber;
+//                path += email;
 //                path += "\"&password=\"";
 //                path += password;
 //                path += "\"";
@@ -222,7 +210,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 //        conn.setUseCaches(false);
 //        is = conn.getInputStream();
 //        String path = "http://40.74.139.156:1337/login?email=\"";
-//        path += mobileNumber;
+//        path += email;
 //        path += "\"&password=\"";
 //        path += password;
 //        path += "\"";
@@ -235,8 +223,8 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
         RequestParams param = new RequestParams();
 
-        param.put("email", "test@gmail.com");
-        param.put("password", "123123");
+        param.put("email", email);
+        param.put("password", password);
         StringEntity entity=new StringEntity(param.toString());
         mHttpClient.post("http://40.74.139.156:1337/login", param, new AsyncHttpResponseHandler() {
                     @Override
@@ -286,11 +274,11 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
 
     private boolean isInputValid() {
 
-        if (!isInputted(this, etMobileNumber)) {
+        if (!isInputted(this, etEmail)) {
             return false;
         }
 
-        if (!isMobileNumberValid(this, etMobileNumber)) {
+        if (!isMobileNumberValid(this, etEmail)) {
             return false;
         }
 
@@ -309,7 +297,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
     public void onConnectionEstablished(int code) {
         if (code == SIGNED_IN_ACTION) {
             try {
-                doLoginRequest(etMobileNumber.getEditText().getText().toString(),
+                doLoginRequest(etEmail.getEditText().getText().toString(),
                         etPassword.getEditText().getText().toString());
             } catch (IOException e) {
                 e.printStackTrace();
