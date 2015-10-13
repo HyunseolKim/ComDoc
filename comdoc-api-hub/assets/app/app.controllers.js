@@ -725,7 +725,7 @@ app.controller('MypageCompanySheetController', function($scope, ROOT) {
 
 app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
 	$scope.Root = ROOT;
-	$$scope.top = {
+	$scope.top = {
 		backstretch: [ 
 			ROOT+'/assets/img/big/big-3.jpg',
 			ROOT+'/assets/img/big/big-5.jpg'

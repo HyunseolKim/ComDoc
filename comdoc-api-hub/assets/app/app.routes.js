@@ -116,7 +116,7 @@ app.config(function($routeProvider, $locationProvider){
         controller: "MypageCompanySheetController"
     })
     .when('/mypage/user/sheet/detail',{
-        templateUrl: "app.views/misc/mypage/user/mypage-user-sheet-detail.tpl.html",
+        templateUrl: "app/views/misc/mypage/user/mypage-user-sheet-detail.tpl.html",
         controller: "MypageUserSheetDetailController"
     })
     .otherwise({redirectTo:'/'});
