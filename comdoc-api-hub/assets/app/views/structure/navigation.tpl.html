@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse" collapse="isCollapsed">
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-repeat="item in menu.items" class="dropdown" dropdown on-toggle="toggled(open)">
-					<a ng-click="item.click()" ng-hide="item.dropdown || (item.needAuth && !user) || (item.BeforeSignIn && user)" ng-href="{{ item.link }}">{{ item.name }}</a>
+					<a ng-click="item.click()" ng-hide="item.dropdown || (item.needAuth && !(user || company)) || (item.BeforeSignIn && (user || company)) || (item.userPage && !user) || (item.companyPage && !company)" ng-href="{{ item.link }}">{{ item.name }}</a>
 					<a ng-show="item.dropdown" href class="dropdown-toggle" dropdown-toggle>
 						{{ item.name }} <b class="caret"></b> 
 					</a>

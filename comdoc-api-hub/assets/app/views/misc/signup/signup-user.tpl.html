@@ -29,25 +29,12 @@
                         <!-- SIGNUP FORM --> 
     <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
 
-        <!-- U S E R N A M E -->
-
-        <div class="control-group form-group col-md-12"
-          ng-class="{'has-error':signup.username.$invalid &&
-                                signup.username.$dirty}">
-          <label>Username</label>
-          <input type="text" class="form-control" placeholder="e.g. Genius" name="username" ng-model="signupForm.username" ng-maxlength="50" required>
-          <span class="help-block has-error" ng-if="signup.username.$dirty">
-            <span ng-show="signup.username.$error.required">username is required.</span>
-            <span ng-show="signup.username.$error.maxlength">The name cannot be more than 50 characters.</span>
-          </span>
-        </div>
-
         <!-- E M A I L -->
 
         <div class="control-group form-group col-md-12"
         ng-class="{'has-error':signup.email.$invalid &&
                               signup.email.$dirty}">
-          <label>Email Address</label>
+          <label>* Email Address</label>
           <input type="email" class="form-control" placeholder="nikola@tesla.com" name="email" ng-model="signupForm.email" required >
           <span class="help-block has-error" ng-if="signup.email.$dirty">
             <span ng-show="signup.email.$error.required">Email address is required.</span>
@@ -55,26 +42,50 @@
           </span>
         </div>
 
-        <!-- P H O N E  N U M B E R -->
+        <!-- P A S S W O R D -->
 
         <div class="control-group form-group col-md-12"
-          ng-class="{'has-error':signup.phone_number.$invalid &&
-                                signup.phone_number.$dirty}">
-          <label>Phone Number</label>
-          <input type="text" class="form-control" placeholder="your phone number" name="phone_number" ng-model="signupForm.phone_number" ng-maxlength="13" required>
-          <span class="help-block has-error" ng-if="signup.phone_number.$dirty">
-            <span ng-show="signup.phone_number.$error.required">phone number is required.</span>
-            <span ng-show="signup.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+        ng-class="{'has-error':signup.password.$invalid &&
+                              signup.password.$dirty}">
+          <label>* Password</label>
+          <!-- Added the compareTo directive that compares the passowrds -->
+          <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+          <span class="help-block has-error" ng-if="signup.password.$dirty">
+            <span ng-show="signup.password.$error.required">Password is required.</span>
+            <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
           </span>
         </div>
 
+        <!-- C O N F I R M  P A S S W O R D -->
+
+        <div class="control-group form-group col-md-12">
+          <label>* Password Again</label>
+          <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
+          <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
+            <span ng-show="signup.password.$error.compareTo">Password must match.</span>
+            <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
+          </span>
+        </div>
+
+        <!-- U S E R N A M E -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.username.$invalid &&
+                                signup.username.$dirty}">
+          <label>* User Name</label>
+          <input type="text" class="form-control" placeholder="e.g. Superman" name="username" ng-model="signupForm.username" ng-maxlength="50" required>
+          <span class="help-block has-error" ng-if="signup.username.$dirty">
+            <span ng-show="signup.username.$error.required">username is required.</span>
+            <span ng-show="signup.username.$error.maxlength">The name cannot be more than 50 characters.</span>
+          </span>
+        </div>
 
         <!-- L O C A T I O N -->
 
         <div class="control-group form-group col-md-12"
           ng-class="{'has-error':signup.location.$invalid &&
                                 signup.location.$dirty}">
-          <label>Location</label>
+          <label>* Location</label>
           <select class="form-control" name="location" ng-model="signupForm.location" required>
             <option>서울시 강남구</option>
             <option>서울시 강동구</option>
@@ -107,28 +118,16 @@
           </span>
         </div>
 
-        <!-- P A S S W O R D -->
+        <!-- P H O N E  N U M B E R -->
 
         <div class="control-group form-group col-md-12"
-        ng-class="{'has-error':signup.password.$invalid &&
-                              signup.password.$dirty}">
-          <label>Password</label>
-          <!-- Added the compareTo directive that compares the passowrds -->
-          <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
-          <span class="help-block has-error" ng-if="signup.password.$dirty">
-            <span ng-show="signup.password.$error.required">Password is required.</span>
-            <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
-          </span>
-        </div>
-
-        <!-- C O N F I R M  P A S S W O R D -->
-
-        <div class="control-group form-group col-md-12">
-          <label>Password Again</label>
-          <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
-          <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
-            <span ng-show="signup.password.$error.compareTo">Password must match.</span>
-            <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
+          ng-class="{'has-error':signup.phone_number.$invalid &&
+                                signup.phone_number.$dirty}">
+          <label>* Phone Number</label>
+          <input type="text" class="form-control" placeholder="e.g. 010-0000-0000" name="phone_number" ng-model="signupForm.phone_number" ng-maxlength="13" required>
+          <span class="help-block has-error" ng-if="signup.phone_number.$dirty">
+            <span ng-show="signup.phone_number.$error.required">phone number is required.</span>
+            <span ng-show="signup.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
           </span>
         </div>
 
