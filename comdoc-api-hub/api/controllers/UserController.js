@@ -5,7 +5,7 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
-module.exports = {
+module.exports = require('waterlock').actions.user({
   
 
   /**
@@ -29,7 +29,7 @@ module.exports = {
       }).exec({
 
         error: function (err){
-          return res.negotiate(err);
+          return waterlock.cycle.loginFailure(req, res, user, err);
         },
 
         // If the password from the form params doesn't checkout w/ the encrypted
@@ -41,11 +41,10 @@ module.exports = {
         success: function (){
 
           // Store user id in the user session
-          req.session.me = user.id;
           req.session.user = user;
 
           // All done- let the client know that everything worked.
-          return res.ok(user);
+          return waterlock.cycle.loginSuccess(req, res, user);
         }
       });
     });
@@ -83,6 +82,11 @@ module.exports = {
           success: function(gravatarUrl) {
           // Create a User with the params sent from
           // the sign-up form --> signup.ejs
+            var params = waterlock._utils.allParams(req);
+            var auth = {
+              email: params.email,
+              password: encryptedPassword
+            }
             User.create({
               username: req.param('username'),
               email: req.param('email'),
@@ -91,7 +95,7 @@ module.exports = {
               encryptedPassword: encryptedPassword,
               lastLoggedIn: new Date(),
               gravatarUrl: gravatarUrl
-            }, function userCreated(err, newUser) {
+            }).exec(function(err, newUser) {
               if (err) {
 
                 console.log("err: ", err);
@@ -107,14 +111,21 @@ module.exports = {
                 // Otherwise, send back something reasonable as our error response.
                 return res.negotiate(err);
               }
+              else {
+                waterlock.engine.attachAuthToUser(auth, newUser, function(err, ua) {
+                  if(err) {
+                    console.log(err);   
+                    return waterlock.cycle.registerFailure(req, res, newUser, err);
+                  }                
+                });
 
-              // Log user in
-              req.session.me = newUser.id;
+                // Log user in
+                req.session.user = newUser;
 
-              // Send back the id of the new user
-              return res.json({
-                id: newUser.id
-              });
+                // Send back the id of the new user
+                return waterlock.cycle.registerSuccess(req, res, newUser);
+              }
+              
             });
           }
         });
@@ -128,25 +139,24 @@ module.exports = {
    */
   logout: function (req, res) {
 
-    // Look up the user record from the database which is
-    // referenced by the id in the user session (req.session.me)
-    User.findOne(req.session.me, function foundUser(err, user) {
-      if (err) return res.negotiate(err);
+    // // Look up the user record from the database which is
+    // // referenced by the id in the user session (req.session.me)
+    // User.find(req.session.user, function foundUser(err, user) {
+    //   if (err) return res.negotiate(err);
 
-      // If session refers to a user who no longer exists, still allow logout.
-      if (!user) {
-        sails.log.verbose('Session refers to a user who no longer exists.');
-        return res.backToHomePage();
-      }
+    //   // If session refers to a user who no longer exists, still allow logout.
+    //   if (!user) {
+    //     sails.log.verbose('Session refers to a user who no longer exists.');
+    //     return res.backToHomePage();
+    //   }
 
       // Wipe out the session (log out)
-      req.session.me = null;
       req.session.user = null;
 
       // Either send a 200 OK or redirect to the home page
       return res.backToHomePage();
 
-    });
+    // });
   },
 
   /**
@@ -182,7 +192,7 @@ module.exports = {
         success: function (){
 
           // Store user id in the user session
-          req.session.me = user.id;
+          req.session.user = user;
 
           // All done- let the client know that everything worked.
           // return res.ok();
@@ -192,4 +202,4 @@ module.exports = {
     });
 
   }
-};
+});

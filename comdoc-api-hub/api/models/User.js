@@ -11,7 +11,7 @@ module.exports = {
   connection: 'someMysqlServer',
   tableName: 'Users',
 
-  attributes: {
+  attributes: require('waterlock').models.user.attributes({
     isAdmin: {
       type: 'boolean',
       defaultsTo: false,
@@ -56,7 +56,6 @@ module.exports = {
     // e.g. nikola@tesla.com
     email: {
       type: 'string',
-      primaryKey: true,
       // email: true,
       required: true,
       unique: true
@@ -88,5 +87,5 @@ module.exports = {
       via: 'request'
     }
 
-  }
+  })
 };
