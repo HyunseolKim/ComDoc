@@ -1,0 +1,194 @@
+<div class="top-parallax medium" ng-include src="'app/views/structure/top.tpl.html'" parallax parallax-ratio="0.2"></div>
+
+<article class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                <div class="content-panel-title">
+                    <h2>Sign Up - Company</h2>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="content-panel">
+                    <p>내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오. 내용을 입력하시오.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <div class="signup-panel">
+                        <!-- <h3>Sign Up</h3> -->
+                        <!-- SIGNUP FORM --> 
+    <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
+
+        <!-- E M A I L -->
+
+        <div class="control-group form-group col-md-12"
+        ng-class="{'has-error':signup.email.$invalid &&
+                              signup.email.$dirty}">
+          <label>* Email Address</label>
+          <input type="email" class="form-control" placeholder="nikola@tesla.com" name="email" ng-model="signupForm.email" required >
+          <span class="help-block has-error" ng-if="signup.email.$dirty">
+            <span ng-show="signup.email.$error.required">Email address is required.</span>
+            <span ng-show="signup.email.$error.email">Not a valid email address.</span>
+          </span>
+        </div>
+
+        <!-- P A S S W O R D -->
+
+        <div class="control-group form-group col-md-12"
+        ng-class="{'has-error':signup.password.$invalid &&
+                              signup.password.$dirty}">
+          <label>* Password</label>
+          <!-- Added the compareTo directive that compares the passowrds -->
+          <input type="password" class="form-control" placeholder="at least 6 characters" name="password" ng-model="signupForm.password" id="password" required ng-minlength="6" compare-to="signupForm.confirmPassword" >
+          <span class="help-block has-error" ng-if="signup.password.$dirty">
+            <span ng-show="signup.password.$error.required">Password is required.</span>
+            <span ng-show="signup.password.$error.minlength">Password must be at least 6 characters.</span>
+          </span>
+        </div>
+
+        <!-- C O N F I R M  P A S S W O R D -->
+
+        <div class="control-group form-group col-md-12">
+          <label>* Password Again</label>
+          <input type="password" class="form-control" placeholder="one more time" name="confirmation" ng-model="signupForm.confirmPassword" required>
+          <span class="help-block has-error" ng-if="signup.confirmation.$dirty">
+            <span ng-show="signup.password.$error.compareTo">Password must match.</span>
+            <span ng-show="signup.confirmation.$error.required">Confirmation password is required.</span>
+          </span>
+        </div>
+
+
+        <!-- C O M P A N Y N A M E -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.companyname.$invalid &&
+                                signup.companyname.$dirty}">
+          <label>* Company Name</label>
+          <input type="text" class="form-control" placeholder="e.g. ComDoc" name="companyname" ng-model="signupForm.companyname" ng-maxlength="50" required>
+          <span class="help-block has-error" ng-if="signup.companyname.$dirty">
+            <span ng-show="signup.companyname.$error.required">companyname is required.</span>
+            <span ng-show="signup.companyname.$error.maxlength">The name cannot be more than 50 characters.</span>
+          </span>
+        </div>
+
+        <!-- L O C A T I O N -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.location.$invalid &&
+                                signup.location.$dirty}">
+          <label>* Location</label>
+          <select class="form-control" name="location" ng-model="signupForm.location" required>
+            <option>서울시 강남구</option>
+            <option>서울시 강동구</option>
+            <option>서울시 강북구</option>
+            <option>서울시 강서구</option>
+            <option>서울시 관악구</option>
+            <option>서울시 광진구</option>
+            <option>서울시 구로구</option>
+            <option>서울시 금천구</option>
+            <option>서울시 노원구</option>
+            <option>서울시 도봉구</option>
+            <option>서울시 동대문구</option>
+            <option>서울시 동작구</option>
+            <option>서울시 마포구</option>
+            <option>서울시 서대문구</option>
+            <option>서울시 서초구</option>
+            <option>서울시 성동구</option>
+            <option>서울시 성북구</option>
+            <option>서울시 송파구</option>
+            <option>서울시 양천구</option>
+            <option>서울시 영등포구</option>
+            <option>서울시 용산구</option>
+            <option>서울시 은평구</option>
+            <option>서울시 종로구</option>
+            <option>서울시 중구</option>
+            <option>서울시 중랑구</option>
+          </select>
+          <span class="help-block has-error" ng-if="signup.location.$dirty">
+            <span ng-show="signup.location.$error.required">location is required.</span>
+          </span>
+        </div>
+
+
+        <!-- A D D R E S S -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.address.$invalid &&
+                                signup.address.$dirty}">
+          <label>* Address</label>
+          <input type="text" class="form-control" placeholder="your detail address" name="address" ng-model="signupForm.address" required>
+          <span class="help-block has-error" ng-if="signup.address.$dirty">
+            <span ng-show="signup.address.$error.required">address is required.</span>
+          </span>
+        </div>
+
+        <!-- A D M I N N A M E-->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.adminname.$invalid &&
+                                signup.adminname.$dirty}">
+          <label>* Administrator name</label>
+          <input type="text" class="form-control" placeholder="e.g. Smith" name="adminname" ng-model="signupForm.adminname" ng-maxlength="10" required>
+          <span class="help-block has-error" ng-if="signup.adminname.$dirty">
+            <span ng-show="signup.adminname.$error.required">admin name is required.</span>
+            <span ng-show="signup.adminname.$error.maxlength">The admin name cannot be more than 10 characters.</span>
+          </span>
+        </div>
+
+        <!-- P H O N E  N U M B E R -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.phone_number.$invalid &&
+                                signup.phone_number.$dirty}">
+          <label>* Phone Number</label>
+          <input type="text" class="form-control" placeholder="e.g. 010-0000-0000" name="phone_number" ng-model="signupForm.phone_number" ng-maxlength="13" required>
+          <span class="help-block has-error" ng-if="signup.phone_number.$dirty">
+            <span ng-show="signup.phone_number.$error.required">phone number is required.</span>
+            <span ng-show="signup.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+          </span>
+        </div>
+
+        <!-- D E S C R I P T I O N -->
+
+        <div class="control-group form-group col-md-12"
+          ng-class="{'has-error':signup.description.$invalid &&
+                                signup.description.$dirty}">
+          <label>Company's description</label>
+          <textarea class="form-control" style="resize: none;" cols="30" rows="3" placeholder="your company's description" name="description" ng-model="signupForm.description"></textarea>
+          <span class="help-block has-error" ng-if="signup.description.$dirty">
+          </span>
+        </div>
+
+
+      <!-- Disable signup button until the form has no errors -->
+      <button class="btn btn-primary btn-lg btn-block" type="submit" ng-disabled="signup.$invalid">
+        <span ng-show="!signupForm.loading">Create Account</span>
+        <span class="overlord-loading-spinner fa fa-spinner" ng-show="signupForm.loading" ></span>
+        <span ng-show="signupForm.loading">Preparing your new account...</span>
+      </button>
+
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-4 col-lg-4">
+                <div class="content-panel">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

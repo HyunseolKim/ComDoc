@@ -29,7 +29,6 @@ module.exports = {
       return res.view('homepage', {
         me: {
           id: user.id,
-          name: user.name,
           email: user.email,
           username: user.username,
           isAdmin: !!user.admin
@@ -38,5 +37,9 @@ module.exports = {
 
     });
   },
+
+  showMyPage: function (req, res) {
+    
+  }
 
 };

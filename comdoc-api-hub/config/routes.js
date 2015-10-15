@@ -35,6 +35,43 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/login': {
+    view: 'homepage'
+  },
+  '/signup': {
+    view: 'homepage'
+  },
+  '/signin': {
+    view: 'homepage'
+  },
+  '/about': {
+    view: 'homepage'
+  },
+  '/contact': {
+    view: 'homepage'
+  },
+  '/mypage/user': {
+    view: 'homepage'
+  },
+  '/mypage/user/sheet': {
+    view: 'homepage'
+  },
+  '/mypage/user/sheet/detail': {
+    view: 'homepage'
+  },
+  '/mypage/company': {
+    view: 'homepage'
+  },
+  '/mypage/company/request_sheet': {
+    view: 'homepage'
+  },
+  '/mypage/company/sheet/detail': {
+    view: 'homepage'
+  },
+  '/mypage/company/request_sheet/detail': {
+    view: 'homepage'
+  },
+
 
   ////////////////////////////////////////////////////////////
   // Server-rendered HTML webpages
@@ -47,9 +84,16 @@ module.exports.routes = {
   ////////////////////////////////////////////////////////////
 
   // User enrollment + authentication
-  'POST /signup': 'UserController.signup',
+  'POST /signup/user': 'UserController.signup',
+  'POST /signup/company': 'CompanyController.signup',
+  'POST /login': 'UserController.login', //for android
   'PUT /login': 'UserController.login',
+  'PUT /login_company': 'CompanyController.login',
   'GET /logout': 'UserController.logout',
+
+  //Sheet enrollment
+  'POST /insert/sheet' : 'SheetController.insertSheet',
+  
 
   'GET /loginAPI' : 'UserController.loginAPI'
 

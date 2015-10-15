@@ -10,6 +10,8 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 		$scope.isCollapsed = true;
 		$scope.progressbar.start();
 	});
+  $scope.user = localStorage.user;
+  $scope.company = localStorage.company;
 	$scope.menu = {
 		items: [
 			{
@@ -106,11 +108,43 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 			},
 			{
 			    link: ROOT+"/login",
-			    name: "Sign In"
+			    name: "Sign In",
+			    BeforeSignIn: true
 			},
 			{
 			    link: ROOT+"/signup",
-			    name: "Sign Up"
+			    name: "Sign Up",
+			    BeforeSignIn: true
+			},
+			{
+					link: ROOT+"/mypage/user",
+					name: "My Page",
+					needAuth: true,
+					userPage: true
+			},
+			{
+					link: ROOT+"/mypage/company",
+					name: "My Page",
+					needAuth: true,
+					companyPage: true
+			},
+			{
+					link: ROOT+"/logout",
+					name: "Logout",
+					needAuth: true,
+					click: function () {
+						// if (localStorage.user) {
+						// 	localStorage.removeItem('user');
+						// 	localStorage.removeItem('company');
+						// }
+						// else {
+						// 	localStorage.removeItem('user');
+						// 	localStorage.removeItem('company');
+						// }
+						localStorage.removeItem('user');
+						localStorage.removeItem('company');
+						window.location = '/';
+					}
 			}
 		]
 	}
@@ -123,111 +157,7 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 	};
 });
 app.controller('FooterController', function($scope, ROOT) {
-	$scope.brand = 'Sharp Vision';
-	$scope.menu = {
-		items: [
-			{
-			    link: ROOT+"/",
-			    name: "Home"
-			},
-			{
-			    link: ROOT+"/about",
-			    name: "About"
-			},
-			{
-				name: "Features",
-				dropdown: true,
-				items: [
-				    {
-					    link: ROOT+"/pricing",
-					    name: "Pricing"
-					},
-					{
-					    link: ROOT+"/blog",
-					    name: "Blog"
-					},
-					{
-					    link: ROOT+"/blogpost",
-					    name: "Blog Post"
-					},
-					{
-					    link: ROOT+"/portfolio",
-					    name: "Portfolio"
-					},
-					{
-					    link: ROOT+"/portfolioitem",
-					    name: "Portfolio Item"
-					},
-					{
-					    link: ROOT+"/comingsoon",
-					    name: "Coming Soon"
-					},
-					{
-					    link: ROOT+"/gallery",
-					    name: "Gallery"
-					},
-					{
-					    link: ROOT+"/404",
-					    name: "404"
-					},
-					{
-					    link: ROOT+"/500",
-					    name: "500"
-					},
-				]
-			},
-			{
-				name: "Pages",
-				dropdown: true,
-				items: [
-				    {
-					    link: ROOT+"/grid",
-					    name: "Grid"
-					},
-					{
-					    link: ROOT+"/typography",
-					    name: "Typography"
-					},
-					{
-					    link: ROOT+"/buttons",
-					    name: "Buttons"
-					},
-					{
-					    link: ROOT+"/tables",
-					    name: "Tables"
-					},
-					{
-					    link: ROOT+"/icons",
-					    name: "Icons"
-					},
-					{
-					    link: ROOT+"/forms",
-					    name: "Forms"
-					},
-					{
-					    link: ROOT+"/pagination",
-					    name: "Pagination"
-					},
-					{
-					    link: ROOT+"/components",
-					    name: "Components"
-					},
-				]
-			},
-			{
-			    link: ROOT+"/contact",
-			    name: "Contact"
-			},
-			{
-			    link: ROOT+"/login",
-			    name: "Login"
-			},
-			{
-			    link: ROOT+"/signup",
-			    name: "Signup"
-			}
-		]
-	}
+	$scope.brand = 'ComDoc';
 });
 
 app.controller('HomeController', function($scope, ROOT) {
@@ -297,44 +227,99 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 		login: true,
 		backstretch: [ ROOT+'/assets/img/big/big-1.jpg' ]
 	};
+	$scope.loginForm = {
+		type: 'user'
+	};
 
 	$scope.submitLoginForm = function (){
 
     // Set the loading state (i.e. show loading spinner)
     $scope.loginForm.loading = true;
 
-    // Submit request to Sails.
-    $http.put('/login', {
-      email: $scope.loginForm.email,
-      password: $scope.loginForm.password
-    })
-    .then(function onSuccess (){
-      // Refresh the page now that we've been logged in.
-      window.location = '/';
-    })
-    .catch(function onError(sailsResponse) {
+    if ($scope.loginForm.type == "user") {
+    	// Submit request to Sails.
+	    $http.put('/login', {
+	      email: $scope.loginForm.email,
+	      password: $scope.loginForm.password
+	    })
+	    .then(function onSuccess (res){
+	      // Refresh the page now that we've been logged in.
+	      window.location = '/';
 
-      // Handle known error type(s).
-      // Invalid username / password combination.
-      if (sailsResponse.status === 400 || 404) {
-        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
-        //
-        toastr.error('Invalid email/password combination.', 'Error', {
-          closeButton: true
-        });
-        return;
-      }
+	      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	    })
+	    .catch(function onError(sailsResponse) {
 
-        toastr.error('An unexpected error occurred, please try again.', 'Error', {
-          closeButton: true
-        });
-        return;
+	      // Handle known error type(s).
+	      // Invalid username / password combination.
+	      if (sailsResponse.status === 400 || 404) {
+	        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
+	        //
+	        toastr.error('Invalid email/password combination.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+	      }
 
-    })
-    .finally(function eitherWay(){
-      $scope.loginForm.loading = false;
-    });
+	        toastr.error('An unexpected error occurred, please try again.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.loginForm.loading = false;
+	    });
+    }
+
+    else {
+    	// Submit request to Sails.
+	    $http.put('/login_company', {
+	      email: $scope.loginForm.email,
+	      password: $scope.loginForm.password
+	    })
+	    .then(function onSuccess (res){
+	      // Refresh the page now that we've been logged in.
+	      window.location = '/';
+
+	      localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
+	    })
+	    .catch(function onError(sailsResponse) {
+
+	      // Handle known error type(s).
+	      // Invalid username / password combination.
+	      if (sailsResponse.status === 400 || 404) {
+	        // $scope.loginForm.topLevelErrorMessage = 'Invalid email/password combination.';
+	        //
+	        toastr.error('Invalid email/password combination.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+	      }
+
+	        toastr.error('An unexpected error occurred, please try again.', 'Error', {
+	          closeButton: true
+	        });
+	        return;
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.loginForm.loading = false;
+	    });
+    }
   };
+});
+
+app.controller('LogoutController', function($scope) {
+	// var vm = this;
+
+	// vm.logout = function () {
+	// 	localStorage.removeItem('user');
+	// 	$http.get('/logout').then(function onSuccess(sailsResponse){
+	// 	window.location = '/';
+	// 	})
+	// };
+
 });
 
 app.controller('SignupController', function($scope, $http, toastr, ROOT) {
@@ -352,32 +337,105 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     // Set the loading state (i.e. show loading spinner)
     $scope.signupForm.loading = true;
 
-    // Submit request to Sails.
-    $http.post('/signup', {
-      username: $scope.signupForm.username,
-      email: $scope.signupForm.email,
-      phone_number: $scope.signupForm.phone_number,
-      location: $scope.signupForm.location,
-      password: $scope.signupForm.password
-    })
-    .then(function onSuccess(sailsResponse){
+    if($scope.signupForm.username) {
+    	$http.post('/signup/user', {
+    		username: $scope.signupForm.username,
+	      email: $scope.signupForm.email,
+	      phone_number: $scope.signupForm.phone_number,
+	      location: $scope.signupForm.location,
+	      password: $scope.signupForm.password
+    	})
+    	.then(function onSuccess(sailsResponse){
       window.location = '/';
-    })
-    .catch(function onError(sailsResponse){
+	    })
+	    .catch(function onError(sailsResponse){
 
-    // Handle known error type(s).
-    // If using sails-disk adpater -- Handle Duplicate Key
-    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+	    // Handle known error type(s).
+	    // If using sails-disk adpater -- Handle Duplicate Key
+	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
 
-    if (emailAddressAlreadyInUse) {
-      toastr.error('That email address has already been taken, please try again.', 'Error');
-      return;
+	    if (true/*emailAddressAlreadyInUse*/) {
+	      toastr.error('That email address has already been taken, please try again.', 'Error');
+	      return;
+	    }
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.signupForm.loading = false;
+	    })
     }
 
-    })
-    .finally(function eitherWay(){
-      $scope.signupForm.loading = false;
-    })
+    else if ($scope.signupForm.companyname) {
+    	$http.post('/signup/company', {
+    		email: $scope.signupForm.email,
+    		password: $scope.signupForm.password,
+    		companyname: $scope.signupForm.companyname,
+    		location: $scope.signupForm.location,
+    		address: $scope.signupForm.address,
+    		adminname: $scope.signupForm.adminname,
+    		phone_number: $scope.signupForm.phone_number,
+    		description: $scope.signupForm.description
+    	})
+    	.then(function onSuccess(sailsResponse){
+      window.location = '/';
+	    })
+	    .catch(function onError(sailsResponse){
+
+	    // Handle known error type(s).
+	    // If using sails-disk adpater -- Handle Duplicate Key
+	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+
+	    if (true/*emailAddressAlreadyInUse*/) {
+	      toastr.error('That email address has already been taken, please try again.', 'Error');
+	      return;
+	    }
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.signupForm.loading = false;
+	    })
+    }
+
+    // // Submit request to Sails.
+    // $http.post('/signup', {
+    // 	if($scope.signupForm.username) {
+    // 		username: $scope.signupForm.username,
+	   //    email: $scope.signupForm.email,
+	   //    phone_number: $scope.signupForm.phone_number,
+	   //    location: $scope.signupForm.location,
+	   //    password: $scope.signupForm.password
+    // 	}
+
+    // 	else {
+    // 		email: $scope.signupForm.email,
+    // 		password: $scope.signupForm.password,
+    // 		companyname: $scope.signupForm.companyname,
+    // 		location: $scope.signupForm.location,
+    // 		address: $scope.signupForm.address,
+    // 		adminname: $scope.signupForm.adminname,
+    // 		phone_number: $scope.signupForm.phone_number,
+    // 		description: $scope.signupForm.description
+    // 	}
+      
+    // })
+    // .then(function onSuccess(sailsResponse){
+    //   window.location = '/';
+    // })
+    // .catch(function onError(sailsResponse){
+
+    // // Handle known error type(s).
+    // // If using sails-disk adpater -- Handle Duplicate Key
+    // var emailAddressAlreadyInUse = sailsResponse.status == 409;
+
+    // if (true/*emailAddressAlreadyInUse*/) {
+    //   toastr.error('That email address has already been taken, please try again.', 'Error');
+    //   return;
+    // }
+
+    // })
+    // .finally(function eitherWay(){
+    //   $scope.signupForm.loading = false;
+    // })
   }
 });
 
@@ -615,4 +673,111 @@ app.controller('PaginationController', function($scope) {
 });
 app.controller('ComponentsController', function($scope) {
 	// Stuff goes here!!!
+});
+
+app.controller('MypageUserController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageCompanyController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageUserSheetController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+	$scope.userSheetForm = {
+		loading: false
+	};
+
+	$scope.submitUserSheetForm = function() {
+
+	}
+});
+
+app.controller('MypageCompanyRequestSheetController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+	$scope.submitSheetForm = function(){
+
+    // Set the loading state (i.e. show loading spinner)
+    $scope.sheetForm.loading = true;
+
+    if($scope.sheetForm.username) {
+    	$http.post('/insert/sheet', {
+    	  location: $scope.sheetForm.location,
+	      address: $scope.sheetForm.address,
+	      requester_phone: $scope.sheetForm.requester_phone,
+	      computer_type: $scope.sheetForm.computer_type,
+	      brand: $scope.sheetForm.brand,
+	      used_year: $scope.sheetForm.used_year,
+	      trouble_type: $scope.sheetForm.trouble_type,
+	      trouble_detail: $scope.sheetForm.trouble_detail,
+	      available_time: $scope.sheetForm.available_time,
+    	})
+    	.then(function onSuccess(sailsResponse){
+      window.location = '/';
+	    })
+	    .catch(function onError(sailsResponse){
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.sheetForm.loading = false;
+	    })
+    	}
+	}
+});
+
+app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageCompanyRequestSheetDetailController', function($scope, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
 });

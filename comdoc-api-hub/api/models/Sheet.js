@@ -30,6 +30,11 @@ module.exports = {
       required: true
     },
 
+    address: {
+      type: 'text',
+      required: true
+    },
+
     requester_phone: {
       type: 'string',
       required: true
@@ -52,7 +57,7 @@ module.exports = {
     },
 
     used_year: {
-      type: 'integer'
+      type: 'string'
     },
 
     brand: {

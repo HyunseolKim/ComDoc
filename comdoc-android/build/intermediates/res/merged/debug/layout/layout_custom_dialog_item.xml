@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_bg"
+    android:padding="@dimen/value_15dp"
+    android:text="All Computer"
+    android:textColor="@drawable/clickable_text_bg"
+    android:textSize="@dimen/value_13sp" />
+
+<!-- From: file:/Users/Kahye/Downloads/comdoc/1.%20Source%20Code/finder1_android_prototype_app/src/main/res/layout/layout_custom_dialog_item.xml -->
