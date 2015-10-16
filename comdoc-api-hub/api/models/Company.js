@@ -4,6 +4,7 @@
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
+var uuid = require('node-uuid');
 
 module.exports = {
   // Enforce model schema in the case of schemaless databases
@@ -14,7 +15,6 @@ module.exports = {
   attributes: {
     email: {
       type: 'string',
-      primaryKey: true,
       unique: true,
       required: true
     },
@@ -78,7 +78,38 @@ module.exports = {
     suggestion_sheets: {
       collection: 'Suggestion_sheet',
       via: 'owner'
+    },
+
+    NaN: {
+      type: 'boolean',
+      defaultsTo: false
+    },
+
+    id: {
+      type: 'string',
+      unique: true,
+      primaryKey: true
+    },
+
+    attempts: {
+      collection: 'attempt',
+      via: 'company'
+    },
+
+    jsonWebTokens: {
+      collection: 'jwt',
+      via: 'owner_company'
+    },
+
+    auth: {
+      model: 'auth'
     }
+  },
+
+  beforeCreate: function(values, next) {
+    values.id = uuid.v4();
+
+    next();
   }
 };
 

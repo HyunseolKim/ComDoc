@@ -7,12 +7,13 @@
  */
 
 module.exports = {
+  scheam: true,
 
   attributes: require('waterlock').models.jwt.attributes({
     
-    /* e.g.
-    nickname: 'string'
-    */
+  owner_company: {
+    model: 'company'
+  }
     
   })
 };

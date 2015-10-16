@@ -7,6 +7,7 @@
  */
 
 module.exports = {
+  schema: true,
 
   attributes: require('waterlock').models.resetToken.attributes({
     

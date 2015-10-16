@@ -27,6 +27,9 @@ npm install sails-disk;
 npm install sails-mysql;
 npm install machinepack-passwords --save;
 npm install machinepack-gravatar --save;
+npm install waterlock;
+npm install waterlock-local-auth;
+npm install node-uuid;
 
 ```
 

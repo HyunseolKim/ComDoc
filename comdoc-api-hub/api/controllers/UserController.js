@@ -39,20 +39,18 @@ module.exports = require('waterlock').actions.user({
         },
 
         success: function (){
+          waterlock.cycle.loginSuccess(req, res, user);
 
           // Store user id in the user session
+          req.session.me = user.id;
           req.session.user = user;
 
           // All done- let the client know that everything worked.
-          return waterlock.cycle.loginSuccess(req, res, user);
+          return user;
         }
       });
     });
 
-  },
-
-  me: function (req, res) {
-    return res.ok(req.session.user);
   },
 
   /**
@@ -95,8 +93,8 @@ module.exports = require('waterlock').actions.user({
               encryptedPassword: encryptedPassword,
               lastLoggedIn: new Date(),
               gravatarUrl: gravatarUrl
-            }).exec(function(err, newUser) {
-              if (err) {
+            }).exec({
+              error: function(err) {
 
                 console.log("err: ", err);
                 console.log("err.invalidAttributes: ", err.invalidAttributes)
@@ -110,27 +108,32 @@ module.exports = require('waterlock').actions.user({
 
                 // Otherwise, send back something reasonable as our error response.
                 return res.negotiate(err);
-              }
-              else {
+              },
+
+              success: function(newUser) {
                 waterlock.engine.attachAuthToUser(auth, newUser, function(err, ua) {
                   if(err) {
                     console.log(err);   
                     return waterlock.cycle.registerFailure(req, res, newUser, err);
+                  }
+                  else {
+                    // Log user in
+                    req.session.me = newUser.id;
+                    req.session.user = newUser;
+
+                    return waterlock.cycle.registerSuccess(req, res, newUser);
                   }                
                 });
-
-                // Log user in
-                req.session.user = newUser;
-
-                // Send back the id of the new user
-                return waterlock.cycle.registerSuccess(req, res, newUser);
-              }
-              
+              }  
             });
           }
         });
       }
     });
+  },
+
+  me: function (req, res) {
+    return res.ok(req.session.user);
   },
 
   /**
@@ -139,24 +142,26 @@ module.exports = require('waterlock').actions.user({
    */
   logout: function (req, res) {
 
-    // // Look up the user record from the database which is
-    // // referenced by the id in the user session (req.session.me)
-    // User.find(req.session.user, function foundUser(err, user) {
-    //   if (err) return res.negotiate(err);
+    // Look up the user record from the database which is
+    // referenced by the id in the user session (req.session.me)
+    User.find(req.session.me, function foundUser(err, user) {
+      if (err) return res.negotiate(err);
 
-    //   // If session refers to a user who no longer exists, still allow logout.
-    //   if (!user) {
-    //     sails.log.verbose('Session refers to a user who no longer exists.');
-    //     return res.backToHomePage();
-    //   }
+      // If session refers to a user who no longer exists, still allow logout.
+      if (!user) {
+        sails.log.verbose('Session refers to a user who no longer exists.');
+        return res.backToHomePage();
+      }
 
       // Wipe out the session (log out)
-      req.session.user = null;
+      delete(req.session.me);
+      delete(req.session.user);
+
 
       // Either send a 200 OK or redirect to the home page
-      return res.backToHomePage();
+      return waterlock.cycle.logoutSuccess(req, res);
 
-    // });
+    });
   },
 
   /**

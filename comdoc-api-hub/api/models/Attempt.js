@@ -7,12 +7,13 @@
  */
 
 module.exports = {
+  schema: true,
 
   attributes: require('waterlock').models.attempt.attributes({
     
-    /* e.g.
-    nickname: 'string'
-    */
+   company: {
+    model: 'company'
+   }
     
   })
 };

@@ -86,7 +86,7 @@ module.exports.routes = {
   // User enrollment + authentication
   'POST /signup/user': 'UserController.signup',
   'POST /signup/company': 'CompanyController.signup',
-  'POST /login/user': 'UserController.login', //for android
+  'POST /login/user': 'UserController.login', 
   'POST /login/company': 'CompanyController.login',
   'GET /logout': 'UserController.logout',
   
