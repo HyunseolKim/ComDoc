@@ -21,19 +21,36 @@ module.exports = {
         return res.negotiate(err);
       }
 
-      if (!user) {
+      if (!user && !company) {
         sails.log.verbose('Session refers to a user who no longer exists- did you delete a user, then try to refresh the page with an open tab logged-in as that user?');
         return res.view('homepage');
       }
 
-      return res.view('homepage', {
-        me: {
-          id: user.id,
-          email: user.email,
-          username: user.username,
-          isAdmin: !!user.admin
-        }
-      });
+      if (user) {
+        return res.view('homepage', {
+          me: {
+            id: user.id,
+            email: user.email,
+            username: user.username,
+            isAdmin: !!user.admin
+          }
+        })
+      }
+
+      else if (company) {
+        return res.view('homepage', {
+          me: {
+            id: comapny.id,
+            email: company.email,
+            companyname: company.companyname
+          }
+        })
+      }
+
+      else {
+        sails.log.verbose('Something wrong, go back to the homepage');
+        return res.view('homepage');
+      }
 
     });
   },

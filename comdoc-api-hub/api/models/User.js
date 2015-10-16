@@ -4,6 +4,7 @@
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
+var uuid = require('node-uuid');
 
 module.exports = {
   // Enforce model schema in the case of schemaless databases
@@ -11,7 +12,7 @@ module.exports = {
   connection: 'someMysqlServer',
   tableName: 'Users',
 
-  attributes: {
+  attributes: require('waterlock').models.user.attributes({
     isAdmin: {
       type: 'boolean',
       defaultsTo: false,
@@ -56,8 +57,6 @@ module.exports = {
     // e.g. nikola@tesla.com
     email: {
       type: 'string',
-      primaryKey: true,
-      // email: true,
       required: true,
       unique: true
     },
@@ -86,7 +85,24 @@ module.exports = {
     request_sheets: {
       collection: 'Sheet',
       via: 'request'
+    },
+
+    id: {
+      type: 'string',
+      unique: true,
+      primaryKey: true
+    },
+
+    NaN: {
+      type: 'boolean',
+      defaultsTo: false
     }
 
+  }),
+
+  beforeCreate: function(values, next) {
+    values.id = uuid.v4();
+
+    next();
   }
 };

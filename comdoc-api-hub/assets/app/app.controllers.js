@@ -1,5 +1,5 @@
 /* Structure Controllers  */
-app.controller('NavigationController', function($scope, ROOT, ngProgressFactory, $window) {
+app.controller('NavigationController', function($scope, $http, ROOT, ngProgressFactory, $window) {
 	$scope.Root = ROOT;
 	$scope.brand = 'ComDoc';
     $scope.isCollapsed = true;
@@ -133,17 +133,11 @@ app.controller('NavigationController', function($scope, ROOT, ngProgressFactory,
 					name: "Logout",
 					needAuth: true,
 					click: function () {
-						// if (localStorage.user) {
-						// 	localStorage.removeItem('user');
-						// 	localStorage.removeItem('company');
-						// }
-						// else {
-						// 	localStorage.removeItem('user');
-						// 	localStorage.removeItem('company');
-						// }
 						localStorage.removeItem('user');
 						localStorage.removeItem('company');
+						$http.get('/logout').then(function onSuccess(sailsResponse){
 						window.location = '/';
+						});
 					}
 			}
 		]
@@ -238,7 +232,7 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 
     if ($scope.loginForm.type == "user") {
     	// Submit request to Sails.
-	    $http.put('/login', {
+	    $http.post('/login/user', {
 	      email: $scope.loginForm.email,
 	      password: $scope.loginForm.password
 	    })
@@ -274,7 +268,7 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 
     else {
     	// Submit request to Sails.
-	    $http.put('/login_company', {
+	    $http.post('/login/company', {
 	      email: $scope.loginForm.email,
 	      password: $scope.loginForm.password
 	    })
@@ -311,14 +305,14 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 });
 
 app.controller('LogoutController', function($scope) {
-	// var vm = this;
 
-	// vm.logout = function () {
-	// 	localStorage.removeItem('user');
-	// 	$http.get('/logout').then(function onSuccess(sailsResponse){
-	// 	window.location = '/';
-	// 	})
-	// };
+	$scope.logout = function () {
+		localStorage.removeItem('user');
+		localStorage.removeItem('company');
+		$http.get('/logout').then(function onSuccess(sailsResponse){
+		window.location = '/';
+		})
+	};
 
 });
 
