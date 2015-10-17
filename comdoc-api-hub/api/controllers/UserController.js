@@ -38,15 +38,14 @@ module.exports = require('waterlock').actions.user({
           return res.notFound();
         },
 
-        success: function (){
-          waterlock.cycle.loginSuccess(req, res, user);
+        success: function (){       
 
           // Store user id in the user session
           req.session.me = user.id;
           req.session.user = user;
 
           // All done- let the client know that everything worked.
-          return user;
+          return waterlock.cycle.loginSuccess(req, res, user);
         }
       });
     });
