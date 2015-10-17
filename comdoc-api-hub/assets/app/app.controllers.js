@@ -237,10 +237,10 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 	      password: $scope.loginForm.password
 	    })
 	    .then(function onSuccess (res){
-	      // Refresh the page now that we've been logged in.
-	      window.location = '/';
+	    	localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
 
-	      localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	      // Refresh the page now that we've been logged in.
+	      window.location = '/';  
 	    })
 	    .catch(function onError(sailsResponse) {
 
@@ -273,10 +273,10 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 	      password: $scope.loginForm.password
 	    })
 	    .then(function onSuccess (res){
+	    	localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
+
 	      // Refresh the page now that we've been logged in.
 	      window.location = '/';
-
-	      localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
 	    })
 	    .catch(function onError(sailsResponse) {
 
@@ -339,19 +339,26 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
 	      location: $scope.signupForm.location,
 	      password: $scope.signupForm.password
     	})
-    	.then(function onSuccess(sailsResponse){
-      window.location = '/';
+    	.then(function onSuccess(res){
+    		localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+      	
+      	window.location = '/';
 	    })
 	    .catch(function onError(sailsResponse){
 
-	    // Handle known error type(s).
-	    // If using sails-disk adpater -- Handle Duplicate Key
-	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+		    // Handle known error type(s).
+		    // If using sails-disk adpater -- Handle Duplicate Key
+		    var emailAddressAlreadyInUse = sailsResponse.status == 409;
 
-	    if (true/*emailAddressAlreadyInUse*/) {
-	      toastr.error('That email address has already been taken, please try again.', 'Error');
-	      return;
-	    }
+		    if (emailAddressAlreadyInUse) {
+		      toastr.error('That email address has already been taken, please try again.', 'Error');
+		      return;
+		    }
+		    else if (sailsResponse.status === 400 || 404) {
+		    	toastr.info(sailsResponse.status);
+
+					return;
+		    }
 
 	    })
 	    .finally(function eitherWay(){
@@ -370,19 +377,26 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
     		phone_number: $scope.signupForm.phone_number,
     		description: $scope.signupForm.description
     	})
-    	.then(function onSuccess(sailsResponse){
-      window.location = '/';
+    	.then(function onSuccess(res){
+    		localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
+      
+      	window.location = '/';
 	    })
 	    .catch(function onError(sailsResponse){
 
-	    // Handle known error type(s).
-	    // If using sails-disk adpater -- Handle Duplicate Key
-	    var emailAddressAlreadyInUse = sailsResponse.status == 409;
+		    // Handle known error type(s).
+		    // If using sails-disk adpater -- Handle Duplicate Key
+		    var emailAddressAlreadyInUse = sailsResponse.status == 409;
 
-	    if (true/*emailAddressAlreadyInUse*/) {
-	      toastr.error('That email address has already been taken, please try again.', 'Error');
-	      return;
-	    }
+		    if (emailAddressAlreadyInUse) {
+		      toastr.error('That email address has already been taken, please try again.', 'Error');
+		      return;
+		    }
+		    else if (sailsResponse.stats === 400 || 404) {
+		    	toastr.info(sailsResponse.status);
+
+					return;
+		    }
 
 	    })
 	    .finally(function eitherWay(){
