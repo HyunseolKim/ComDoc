@@ -53,9 +53,9 @@ module.exports = require('waterlock').actions.user({
   },
 
   /**
-   * Sign up for a user account.
+   * Register for a user account.
    */
-  signup: function(req, res) {
+  register: function(req, res) {
 
     var Passwords = require('machinepack-passwords');
 
@@ -78,7 +78,7 @@ module.exports = require('waterlock').actions.user({
           },
           success: function(gravatarUrl) {
           // Create a User with the params sent from
-          // the sign-up form --> signup.ejs
+          // the sign-up form --> register.ejs
             var params = waterlock._utils.allParams(req);
             var auth = {
               email: params.email,

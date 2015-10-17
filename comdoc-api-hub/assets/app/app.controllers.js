@@ -108,13 +108,13 @@ app.controller('NavigationController', function($scope, $http, ROOT, ngProgressF
 			},
 			{
 			    link: ROOT+"/login",
-			    name: "Sign In",
-			    BeforeSignIn: true
+			    name: "Log In",
+			    BeforeLogIn: true
 			},
 			{
-			    link: ROOT+"/signup",
-			    name: "Sign Up",
-			    BeforeSignIn: true
+			    link: ROOT+"/register",
+			    name: "Register",
+			    BeforeLogIn: true
 			},
 			{
 					link: ROOT+"/mypage/user",
@@ -316,28 +316,28 @@ app.controller('LogoutController', function($scope) {
 
 });
 
-app.controller('SignupController', function($scope, $http, toastr, ROOT) {
+app.controller('RegisterController', function($scope, $http, toastr, ROOT) {
 	$scope.top = {
-		signup: true,
+		register: true,
 		backstretch: [ ROOT+'/assets/img/big/big-1.jpg' ]
 	};
 	// set-up loading state
-  $scope.signupForm = {
+  $scope.registerForm = {
     loading: false
   }
 
-  $scope.submitSignupForm = function(){
+  $scope.submitRegisterForm = function(){
 
     // Set the loading state (i.e. show loading spinner)
-    $scope.signupForm.loading = true;
+    $scope.registerForm.loading = true;
 
-    if($scope.signupForm.username) {
-    	$http.post('/signup/user', {
-    		username: $scope.signupForm.username,
-	      email: $scope.signupForm.email,
-	      phone_number: $scope.signupForm.phone_number,
-	      location: $scope.signupForm.location,
-	      password: $scope.signupForm.password
+    if($scope.registerForm.username) {
+    	$http.post('/register/user', {
+    		username: $scope.registerForm.username,
+	      email: $scope.registerForm.email,
+	      phone_number: $scope.registerForm.phone_number,
+	      location: $scope.registerForm.location,
+	      password: $scope.registerForm.password
     	})
     	.then(function onSuccess(res){
     		localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
@@ -354,28 +354,28 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
 		      toastr.error('That email address has already been taken, please try again.', 'Error');
 		      return;
 		    }
-		    else if (sailsResponse.status === 400 || 404) {
-		    	toastr.info(sailsResponse.status);
+		    else if (sailsResponse.status === 400 || 404 || 403) {
+		    	toastr.error('Something wrong, try again.',sailsResponse.status);
 
 					return;
 		    }
 
 	    })
 	    .finally(function eitherWay(){
-	      $scope.signupForm.loading = false;
+	      $scope.registerForm.loading = false;
 	    })
     }
 
-    else if ($scope.signupForm.companyname) {
-    	$http.post('/signup/company', {
-    		email: $scope.signupForm.email,
-    		password: $scope.signupForm.password,
-    		companyname: $scope.signupForm.companyname,
-    		location: $scope.signupForm.location,
-    		address: $scope.signupForm.address,
-    		adminname: $scope.signupForm.adminname,
-    		phone_number: $scope.signupForm.phone_number,
-    		description: $scope.signupForm.description
+    else if ($scope.registerForm.companyname) {
+    	$http.post('/register/company', {
+    		email: $scope.registerForm.email,
+    		password: $scope.registerForm.password,
+    		companyname: $scope.registerForm.companyname,
+    		location: $scope.registerForm.location,
+    		address: $scope.registerForm.address,
+    		adminname: $scope.registerForm.adminname,
+    		phone_number: $scope.registerForm.phone_number,
+    		description: $scope.registerForm.description
     	})
     	.then(function onSuccess(res){
     		localStorage.company = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).company
@@ -392,58 +392,17 @@ app.controller('SignupController', function($scope, $http, toastr, ROOT) {
 		      toastr.error('That email address has already been taken, please try again.', 'Error');
 		      return;
 		    }
-		    else if (sailsResponse.stats === 400 || 404) {
-		    	toastr.info(sailsResponse.status);
+		    else if (sailsResponse.status === 400 || 404 || 403) {
+		    	toastr.error('Somthing wrong, try again.',sailsResponse.status);
 
 					return;
 		    }
 
 	    })
 	    .finally(function eitherWay(){
-	      $scope.signupForm.loading = false;
+	      $scope.registerForm.loading = false;
 	    })
     }
-
-    // // Submit request to Sails.
-    // $http.post('/signup', {
-    // 	if($scope.signupForm.username) {
-    // 		username: $scope.signupForm.username,
-	   //    email: $scope.signupForm.email,
-	   //    phone_number: $scope.signupForm.phone_number,
-	   //    location: $scope.signupForm.location,
-	   //    password: $scope.signupForm.password
-    // 	}
-
-    // 	else {
-    // 		email: $scope.signupForm.email,
-    // 		password: $scope.signupForm.password,
-    // 		companyname: $scope.signupForm.companyname,
-    // 		location: $scope.signupForm.location,
-    // 		address: $scope.signupForm.address,
-    // 		adminname: $scope.signupForm.adminname,
-    // 		phone_number: $scope.signupForm.phone_number,
-    // 		description: $scope.signupForm.description
-    // 	}
-      
-    // })
-    // .then(function onSuccess(sailsResponse){
-    //   window.location = '/';
-    // })
-    // .catch(function onError(sailsResponse){
-
-    // // Handle known error type(s).
-    // // If using sails-disk adpater -- Handle Duplicate Key
-    // var emailAddressAlreadyInUse = sailsResponse.status == 409;
-
-    // if (true/*emailAddressAlreadyInUse*/) {
-    //   toastr.error('That email address has already been taken, please try again.', 'Error');
-    //   return;
-    // }
-
-    // })
-    // .finally(function eitherWay(){
-    //   $scope.signupForm.loading = false;
-    // })
   }
 });
 

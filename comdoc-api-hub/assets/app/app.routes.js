@@ -80,20 +80,20 @@ app.config(function($routeProvider, $locationProvider){
         controller: "ContactController"
     })
     .when('/login',{
-        templateUrl: "app/views/misc/signin.tpl.html",
+        templateUrl: "app/views/misc/login.tpl.html",
         controller: "LoginController"
     })
-    .when('/signup',{
-        templateUrl: "app/views/misc/signup/signup.tpl.html",
-        controller: "SignupController"
+    .when('/register',{
+        templateUrl: "app/views/misc/register/register.tpl.html",
+        controller: "RegisterController"
     })
-    .when('/signup/user',{
-        templateUrl: "app/views/misc/signup/signup-user.tpl.html",
-        controller: "SignupController"
+    .when('/register/user',{
+        templateUrl: "app/views/misc/register/register-user.tpl.html",
+        controller: "RegisterController"
     })
-    .when('/signup/company',{
-        templateUrl: "app/views/misc/signup/signup-company.tpl.html",
-        controller: "SignupController"
+    .when('/register/company',{
+        templateUrl: "app/views/misc/register/register-company.tpl.html",
+        controller: "RegisterController"
     })
     .when('/logout',{
         redirectTo: '/',
