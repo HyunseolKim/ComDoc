@@ -78,7 +78,7 @@ module.exports = require('waterlock').actions.user({
           },
           success: function(gravatarUrl) {
           // Create a User with the params sent from
-          // the sign-up form --> signup.ejs
+          // the sign-up form --> register.ejs
             var params = waterlock._utils.allParams(req);
             var auth = {
               email: params.email,

@@ -354,8 +354,8 @@ app.controller('RegisterController', function($scope, $http, toastr, ROOT) {
 		      toastr.error('That email address has already been taken, please try again.', 'Error');
 		      return;
 		    }
-		    else if (sailsResponse.status === 400 || 404) {
-		    	toastr.info(sailsResponse.status);
+		    else if (sailsResponse.status === 400 || 404 || 403) {
+		    	toastr.error('Something wrong, try again.',sailsResponse.status);
 
 					return;
 		    }
@@ -392,8 +392,8 @@ app.controller('RegisterController', function($scope, $http, toastr, ROOT) {
 		      toastr.error('That email address has already been taken, please try again.', 'Error');
 		      return;
 		    }
-		    else if (sailsResponse.stats === 400 || 404) {
-		    	toastr.info(sailsResponse.status);
+		    else if (sailsResponse.status === 400 || 404 || 403) {
+		    	toastr.error('Somthing wrong, try again.',sailsResponse.status);
 
 					return;
 		    }
