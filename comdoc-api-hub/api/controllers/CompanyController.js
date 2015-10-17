@@ -580,14 +580,13 @@ module.exports = require('waterlock').actions.user({
         },
 
         success: function (){
-          loginSuccess(req, res, company);
 
           // Store company id in the company session
           req.session.me = company.id;
           req.session.user = company;
 
           // All done- let the client know that everything worked.
-          return company;
+          return loginSuccess(req, res, company);
         }
       });
     });
