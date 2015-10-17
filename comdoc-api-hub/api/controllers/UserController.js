@@ -53,9 +53,9 @@ module.exports = require('waterlock').actions.user({
   },
 
   /**
-   * Sign up for a user account.
+   * Register for a user account.
    */
-  signup: function(req, res) {
+  register: function(req, res) {
 
     var Passwords = require('machinepack-passwords');
 
