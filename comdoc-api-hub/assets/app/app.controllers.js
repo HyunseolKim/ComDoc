@@ -130,7 +130,7 @@ app.controller('NavigationController', function($scope, $http, ROOT, ngProgressF
 			},
 			{
 					link: ROOT+"/logout",
-					name: "Logout",
+					name: "Log Out",
 					needAuth: true,
 					click: function () {
 						localStorage.removeItem('user');
