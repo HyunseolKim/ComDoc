@@ -71,8 +71,8 @@ module.exports = {
     },
 
     final_price: {
-      type: 'integer',
-      required: true
+      type: 'integer'
+      //required: true
     },
 
     created_date: {
@@ -86,13 +86,13 @@ module.exports = {
     },
 
     final_start_date: {
-      type: 'string',
-      required: true
+      type: 'string'
+      //required: true
     },
 
     final_end_date: {
-      type: 'string',
-      required: true
+      type: 'string'
+      //required: true
     }
 
   }

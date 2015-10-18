@@ -13,35 +13,19 @@
                   </p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
-                <div class="content-panel">
-                    <h3>견적서 1</h3>
-                    <p>21/11/13 <span class="pull-right">James Don</span></p>
-                    <img class="content-image" ng-src="assets/img/blog/blog-1.jpg" alt="" >
-                    <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, non auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor.</p>
-                    <a class="pull-right btn blue" href="{{ Root }}/mypage/user/sheet/detail">자세히 보기</a>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" ng-controller="MypageUserController">
+                <div class="content-panel" ng-repeat="item in items">
+                    <!-- <form ng-submit="submitUserSheetDetailForm()"> -->
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="item.location"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="item.requester_phone"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="item.trouble_type"></div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="item.created_date"></div>
+                        <!-- <button class="pull-right btn blue" type="submit">자세히 보기</button> -->
+                        <a class="pull-right btn blue" href="{{ Root }}/sheet/find/1">자세히 보기</a>
+                    <!-- </form> -->
                 </div>
-                <div class="content-panel">
-                    <h3>견적서 2</h3>
-                    <p>05/08/13 <span class="pull-right">James Don</span></p>
-                    <img class="content-image" ng-src="assets/img/blog/blog-2.jpg" alt="" >
-                    <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, non auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor.</p>
-                    <a class="pull-right btn blue"  href="{{ Root }}/mypage/user/sheet/detail">자세히 보기</a>
-                </div>
-                <div class="content-panel">
-                    <h3>견적서 3</h3>
-                    <p>03/06/13 <span class="pull-right">James Don</span></p>
-                    <img class="content-image" ng-src="assets/img/blog/blog-3.jpg" alt="" >
-                    <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, non auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor.</p>
-                    <a class="pull-right btn blue"  href="{{ Root }}/mypage/user/sheet/detail">자세히 보기</a>
-                </div>
-                <div class="content-panel">
-                    <h3>견적서 4</h3>
-                    <p>02/05/13 <span class="pull-right">James Don</span></p>
-                    <img class="content-image" ng-src="assets/img/blog/blog-4.jpg" alt="" >
-                    <p>Nunc vehicula dapibus ipsum. Duis venenatis risus non nunc fermentum dapibus. Morbi lorem ante, malesuada in mollis nec, non auctor nec massa. Aenean tempus dui eget felis blandit at fringilla urna ultrices. Suspendisse feugiat, ante et viverra lacinia, lectus sem lobortis dui, ultricies consectetur leo mauris at tortor.</p>
-                    <a class="pull-right btn blue"  href="{{ Root }}/mypage/user/sheet/detail">자세히 보기</a>
-                </div>
+
+                
             </div>
         </div>
     </div>
