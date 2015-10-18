@@ -130,7 +130,7 @@ app.controller('NavigationController', function($scope, $http, ROOT, ngProgressF
 			},
 			{
 					link: ROOT+"/logout",
-					name: "Logout",
+					name: "Log Out",
 					needAuth: true,
 					click: function () {
 						localStorage.removeItem('user');
@@ -237,10 +237,15 @@ app.controller('LoginController', function($scope, $http, toastr, ROOT) {
 	      password: $scope.loginForm.password
 	    })
 	    .then(function onSuccess (res){
-	    	localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage).user
+	    	localStorage.user = JSON.stringify(res.data);  // 불러올때: JSON.parse(localStorage.user)
 
 	      // Refresh the page now that we've been logged in.
 	      window.location = '/';  
+
+	      // var bu = JSON.parse(localStorage.user);
+	      // window.alert(localStorage.user);
+	      // window.alert(bu.user.id);
+
 	    })
 	    .catch(function onError(sailsResponse) {
 
@@ -642,7 +647,37 @@ app.controller('ComponentsController', function($scope) {
 	// Stuff goes here!!!
 });
 
-app.controller('MypageUserController', function($scope, ROOT) {
+app.controller('MypageUserController', function($scope, $http, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+
+	$http.get('/sheet/find').success(function(data) {
+	      for (var i = 0; i < data.length; i++) {
+	        data[i].index = i;
+	      }
+	      $scope.items = data;
+	 });
+
+	// $scope.submitUserSheetDetailForm = function() {
+	// 	var sheet_id = $scope.userSheetForm;
+
+	// 	window.alert(sheet_id);
+
+	// 	$http.get('/sheet/find/'+sheet_id).success(function(data) {
+	//   	$scope.the_item = data;
+	//  	});
+	// }
+	
+
+});
+
+app.controller('MypageCompanyController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -652,17 +687,7 @@ app.controller('MypageUserController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageCompanyController', function($scope, ROOT) {
-	$scope.Root = ROOT;
-	$scope.top = {
-		backstretch: [ 
-			ROOT+'/assets/img/big/big-3.jpg',
-			ROOT+'/assets/img/big/big-5.jpg'
-		]
-	};
-});
-
-app.controller('MypageUserSheetController', function($scope, ROOT) {
+app.controller('MypageUserSheetController', function($scope, $http, toastr, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -671,65 +696,41 @@ app.controller('MypageUserSheetController', function($scope, ROOT) {
 		]
 	};
 
-	$scope.userSheetForm = {
-		loading: false
-	};
-
-	$scope.submitUserSheetForm = function() {
-
-	}
-});
-
-app.controller('MypageCompanyRequestSheetController', function($scope, ROOT) {
-	$scope.Root = ROOT;
-	$scope.top = {
-		backstretch: [ 
-			ROOT+'/assets/img/big/big-3.jpg',
-			ROOT+'/assets/img/big/big-5.jpg'
-		]
-	};
-});
-
-app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
-	$scope.Root = ROOT;
-	$scope.top = {
-		backstretch: [ 
-			ROOT+'/assets/img/big/big-3.jpg',
-			ROOT+'/assets/img/big/big-5.jpg'
-		]
-	};
-
-	$scope.submitSheetForm = function(){
+	$scope.submitUserSheetForm = function(){
 
     // Set the loading state (i.e. show loading spinner)
-    $scope.sheetForm.loading = true;
+    $scope.userSheetForm.loading = true;
 
-    if($scope.sheetForm.username) {
+    var uid = JSON.parse(localStorage.user);
+
+    if(true) {
     	$http.post('/insert/sheet', {
-    	  location: $scope.sheetForm.location,
-	      address: $scope.sheetForm.address,
-	      requester_phone: $scope.sheetForm.requester_phone,
-	      computer_type: $scope.sheetForm.computer_type,
-	      brand: $scope.sheetForm.brand,
-	      used_year: $scope.sheetForm.used_year,
-	      trouble_type: $scope.sheetForm.trouble_type,
-	      trouble_detail: $scope.sheetForm.trouble_detail,
-	      available_time: $scope.sheetForm.available_time,
+    		request: uid.user.id,
+    	  location: $scope.userSheetForm.location,
+	      address: $scope.userSheetForm.address,
+	      requester_phone: $scope.userSheetForm.requester_phone,
+	      computer_type: $scope.userSheetForm.computer_type,
+	      brand: $scope.userSheetForm.brand,
+	      used_year: $scope.userSheetForm.used_year,
+	      trouble_type: $scope.userSheetForm.trouble_type,
+	      trouble_detail: $scope.userSheetForm.trouble_detail,
+	      available_time: $scope.userSheetForm.available_time,
     	})
     	.then(function onSuccess(sailsResponse){
-      window.location = '/';
+    		
+      	window.location = '/';
 	    })
 	    .catch(function onError(sailsResponse){
 
 	    })
 	    .finally(function eitherWay(){
-	      $scope.sheetForm.loading = false;
+	      $scope.userSheetForm.loading = false;
 	    })
-    	}
+    }
 	}
 });
 
-app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
+app.controller('MypageCompanyRequestSheetController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -739,7 +740,28 @@ app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageCompanyRequestSheetDetailController', function($scope, ROOT) {
+app.controller('MypageUserSheetDetailController', function($scope, $http, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+});
+
+app.controller('MypageCompanySheetDetailController', function($scope, $http, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+});
+
+app.controller('MypageCompanyRequestSheetDetailController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 

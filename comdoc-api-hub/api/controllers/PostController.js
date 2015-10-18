@@ -8,6 +8,9 @@ module.exports = {
   },
 
   jwt: function(req, res) {
-    return res.ok("you have a JSON Web Token.");
+    // var token = waterlock._utils.allParams(req).access_token;
+    // var user = waterlock.validator.findUserFromToken(token).user;
+
+    return res.ok("You have a Json Web Token!");
   }
 }

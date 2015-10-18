@@ -13,11 +13,12 @@
                   </p>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blog" ng-controller="MypageUserController">
                 <div class="content-panel">
-                    <h3>견적서 1</h3>
-                    <p>21/11/13 <span class="pull-right">James Don</span></p>
-                    <p>자세한 내용.....</p>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="the_item.location"></div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="the_item.requester_phone"></div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="the_item.trouble_type"></div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" ng-bind="the_item.created_date"></div>
                 </div>
             </div>
         </div>

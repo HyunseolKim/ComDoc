@@ -20,13 +20,13 @@
                     <!-- P H O N E  N U M B E R -->
 
                     <div class="control-group form-group col-md-12"
-                      ng-class="{'has-error':userSheet.phone_number.$invalid &&
-                                            userSheet.phone_number.$dirty}">
+                      ng-class="{'has-error':userSheet.requester_phone.$invalid &&
+                                            userSheet.requester_phone.$dirty}">
                       <label>* 연락처</label>
-                      <input type="text" class="form-control" placeholder="e.g. 010-1234-5678" name="phone_number" ng-model="userSheetForm.phone_number" ng-maxlength="13" required>
-                      <span class="help-block has-error" ng-if="userSheet.phone_number.$dirty">
-                        <span ng-show="userSheet.phone_number.$error.required">phone number is required.</span>
-                        <span ng-show="userSheet.phone_number.$error.maxlength">The phone number cannot be more than 13 characters.</span>
+                      <input type="text" class="form-control" placeholder="e.g. 010-1234-5678" name="requester_phone" ng-model="userSheetForm.requester_phone" ng-maxlength="13" required>
+                      <span class="help-block has-error" ng-if="userSheet.requester_phone.$dirty">
+                        <span ng-show="userSheet.requester_phone.$error.required">phone number is required.</span>
+                        <span ng-show="userSheet.requester_phone.$error.maxlength">The phone number cannot be more than 13 characters.</span>
                       </span>
                     </div>
 

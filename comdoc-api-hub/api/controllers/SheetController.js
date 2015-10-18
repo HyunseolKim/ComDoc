@@ -24,6 +24,7 @@ module.exports = {
 	*/
 	insertSheet: function(req, res) {
 		Sheet.create({
+						request: req.param('request'),
 	          location: req.param('location'),
 	          address: req.param('address'),
 	          requester_phone: req.param('requester_phone'),
@@ -34,8 +35,7 @@ module.exports = {
 	          available_time: req.param('available_time'),
 	          trouble_detail : req.param('trouble_detail'),
 	          matching_status : 0,
-	          created_date : new Date(),
-	          gravatarUrl: gravatarUrl
+	          created_date : new Date()
 	        }, function sheetCreated(err, newSheet) {
 	          if (err) {
 
@@ -45,7 +45,9 @@ module.exports = {
 	            // Otherwise, send back something reasonable as our error response.
 	            return res.negotiate(err);
 	          }
-
+	          User.update({
+	          	request_sheets: newSheet.id
+	          })
 	          // Send back the id of the new user
 	          return res.json({
 	            id: newSheet.id
@@ -56,9 +58,8 @@ module.exports = {
 
 function find(req,res){
 	async.waterfall([
-		findSheets,
-		matchLikes,
-	], serviceUtil.reponse(req, res));
+		findSheets
+	], serviceUtil.response(req, res));
 
 	// 견적서 조회
 	function findSheets(cb) {

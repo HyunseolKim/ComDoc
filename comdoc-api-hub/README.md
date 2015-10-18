@@ -30,6 +30,7 @@ npm install machinepack-gravatar --save;
 npm install waterlock;
 npm install waterlock-local-auth;
 npm install node-uuid;
+npm install async;
 
 ```
 

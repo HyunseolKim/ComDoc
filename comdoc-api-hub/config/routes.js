@@ -47,34 +47,19 @@ module.exports.routes = {
   '/contact': {
     view: 'homepage'
   },
-  '/mypage/user': {
-    view: 'homepage'
-  },
-  '/mypage/user/sheet': {
-    view: 'homepage'
-  },
-  '/mypage/user/sheet/detail': {
-    view: 'homepage'
-  },
-  '/mypage/company': {
-    view: 'homepage'
-  },
-  '/mypage/company/request_sheet': {
-    view: 'homepage'
-  },
-  '/mypage/company/sheet/detail': {
-    view: 'homepage'
-  },
-  '/mypage/company/request_sheet/detail': {
-    view: 'homepage'
-  },
 
 
   ////////////////////////////////////////////////////////////
   // Server-rendered HTML webpages
   ////////////////////////////////////////////////////////////
 
-  'GET /': 'PageController.showHomePage',
+  'GET /mypage/user': 'PageController.showHomePage',
+  'GET /mypage/user/sheet': 'PageController.showHomePage',
+  'GET /mypage/user/sheet/detail': 'PageController.showHomePage',
+  'GET /mypage/company': 'PageController.showHomePage',
+  'GET /mypage/company/request_sheet': 'PageController.showHomePage',
+  'GET /mypage/company/sheet/detail': 'PageController.showHomePage',
+  'GET /mypage/company/request_sheet/detail': 'PageController.showHomePage',
 
   ////////////////////////////////////////////////////////////
   // JSON API
