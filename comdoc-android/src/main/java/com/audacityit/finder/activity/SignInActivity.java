@@ -16,10 +16,14 @@ import com.loopj.android.http.*;
 import java.io.IOException;
 
 import org.apache.http.entity.StringEntity;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.*;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.*;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
@@ -49,6 +53,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
     private boolean isUserCanceled = false;
     private UtilMethods.InternetConnectionListener internetConnectionListener;
     private AsyncHttpClient mHttpClient;
+    private AsyncHttpClient mHttpClient2;
 
     public static void setListener(Context context) {
         signInCompleteListener = (SignInCompleteListener) context;
@@ -149,7 +154,7 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
         }
     }
 
-    private void doLoginRequest(String email, String password) throws IOException {
+    private void doLoginRequest(final String email, String password) throws IOException {
         User user = new User();
         user.setId("1"); //dummy
         user.setPhoneNumber(email);
@@ -226,29 +231,68 @@ public class SignInActivity extends Activity implements View.OnClickListener, Vi
         param.put("email", email);
         param.put("password", password);
         StringEntity entity=new StringEntity(param.toString());
-        mHttpClient.post("http://40.74.139.156:1337/login", param, new AsyncHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                        Toast.makeText(getApplicationContext(), "토스트메시지입니다.",Toast.LENGTH_SHORT).show();
-                        signInCompleteListener.onSignInComplete();
-                        startActivity(new Intent(SignInActivity.this, HomeActivity.class));
-                        finish();
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                        //Log.e("POST요청 에러",  "" + e.getMessage());
-                        Toast.makeText(getApplicationContext(), "fial.",Toast.LENGTH_SHORT).show();
-                    }
-                });
-//        runOnUiThread(new Runnable() {
+//        mHttpClient.post("http://40.74.139.156:1337/login/user", param, new AsyncHttpResponseHandler() {
 //            @Override
-//            public void run() {
+//            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+//                Toast.makeText(getApplicationContext(), "토스트메시지입니다.",Toast.LENGTH_SHORT).show();
 //                signInCompleteListener.onSignInComplete();
 //                startActivity(new Intent(SignInActivity.this, HomeActivity.class));
 //                finish();
 //            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+//                //Log.e("POST요청 에러",  "" + e.getMessage());
+//                Toast.makeText(getApplicationContext(), "fial.",Toast.LENGTH_SHORT).show();
+//            }
 //        });
+
+        mHttpClient.post("http://40.74.139.156:1337/login/user",param, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                if(response.has("token")) {
+                    Toast.makeText(getApplication(),"token",Toast.LENGTH_LONG).show();
+                    SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    try {
+                        editor.putString("token", response.get("token").toString());
+                        editor.putString("email", response.get("email").toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    editor.commit();
+                    Toast.makeText(getApplication(),"save",Toast.LENGTH_LONG).show();
+
+                    signInCompleteListener.onSignInComplete();
+                    startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+                    finish();
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Toast.makeText(getApplication(),"fail",Toast.LENGTH_LONG).show();
+            }
+        });
+
+//        mHttpClient.post("http://40.74.139.156:1337/login/user", param, new AsyncHttpResponseHandler() {
+//                    @Override
+//                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+//                        Toast.makeText(getApplicationContext(), "토스트메시지입니다.", Toast.LENGTH_SHORT).show();
+//                        signInCompleteListener.onSignInComplete();
+//                        startActivity(new Intent(SignInActivity.this, HomeActivity.class));
+//                        finish();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+//                        Toast.makeText(getApplicationContext(), "fail.",Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//
     }
 
 

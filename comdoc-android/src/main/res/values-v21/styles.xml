@@ -11,6 +11,12 @@
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
         <item name="actionMenuTextColor">@color/green_text_color</item>
         <item name="android:statusBarColor">@color/status_bar_color</item>
+    </style>>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
 

@@ -27,8 +27,9 @@
     <string name="forget_password_string"><u>Forget Password?</u></string>
     <string name="new_user_string"><u>Are you new user?</u></string>
     <string name="call_now_string">Call Now</string>
+    <string name="sheet_request">견적요청</string>
     <string name="post_ad_string">Advertise with Us</string>
-    <string name="post_business_string">Post a Business</string>
+    <string name="sheet_Info">내견적 정보</string>
     <string name="profile_string">Profile</string>
     <string name="search_hint">Find here (eg: Audacity IT Solutions Limited)</string>
     <string name="update_string">Update</string>
@@ -105,5 +106,9 @@
     <string name="dummy_company_address">House: 20, Plot No-1/A, J-Block, Baridhara Residential Area (Near The American Center), 1212</string>
     <string name="dummy_web">www.audacityit.com</string>
     <string name="dummy_email">founders@audacityit.com</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_sheet_request">SheetRequest</string>
 
 </resources>

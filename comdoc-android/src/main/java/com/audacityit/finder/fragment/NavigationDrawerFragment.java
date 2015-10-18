@@ -25,11 +25,11 @@ import com.audacityit.finder.R;
 import com.audacityit.finder.activity.ChangePasswordActivity;
 import com.audacityit.finder.activity.PostBusinessActivity;
 import com.audacityit.finder.activity.ProfileUpdateActivity;
+import com.audacityit.finder.activity.SheetRequest;
 import com.audacityit.finder.activity.SignInActivity;
 import com.audacityit.finder.activity.SignUpActivity;
 import com.audacityit.finder.adapter.NavigationAdapter;
 
-import static com.audacityit.finder.util.Constants.FINDER_HOTLINE;
 import static com.audacityit.finder.util.Constants.URL_FACEBOOK;
 import static com.audacityit.finder.util.Constants.URL_GOOGLE_PLUS;
 import static com.audacityit.finder.util.Constants.URL_LINKEDIN;
@@ -38,7 +38,6 @@ import static com.audacityit.finder.util.Constants.URL_YOUTUBE;
 import static com.audacityit.finder.util.Constants.isResultListFragmentOpened;
 import static com.audacityit.finder.util.UtilMethods.browseUrl;
 import static com.audacityit.finder.util.UtilMethods.isUserSignedIn;
-import static com.audacityit.finder.util.UtilMethods.phoneCall;
 import static com.audacityit.finder.util.UtilMethods.showExitDialog;
 
 /**
@@ -121,15 +120,16 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        rootView.findViewById(R.id.btnCallNow).setOnClickListener(new View.OnClickListener() {
+        rootView.findViewById(R.id.btnSheetRequest).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 closeDrawer();
-                phoneCall(getActivity(), FINDER_HOTLINE);
+                startActivity(new Intent(getActivity(), SheetRequest.class));
+               // phoneCall(getActivity(), FINDER_HOTLINE);
             }
         });
 
-        rootView.findViewById(R.id.btnPostBusiness).setOnClickListener(new View.OnClickListener() {
+        rootView.findViewById(R.id.btnSheetInfo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), PostBusinessActivity.class));

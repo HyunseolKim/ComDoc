@@ -7,7 +7,7 @@
     <color name="text_color_2">#65BF50</color>
     <color name="bar_color">#8A9689</color>
     <color name="hint_color_green">#65BF50</color>
-
+    <color name="simple_color_gray">#2b2b2b</color>
     <color name="navigation_background">#FDFCFD</color>
     <color name="green_color_transparent">#3D6F4C</color>
     <color name="green_navigation_text_color">#1e9965</color>

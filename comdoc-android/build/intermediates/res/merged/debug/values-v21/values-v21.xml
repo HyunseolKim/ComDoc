@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.android.support/design/22.2.1/res/values-v21/values-v21.xml -->
+    <eat-comment/>
+    <dimen name="navigation_padding_top_default">24dp</dimen>
     <!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.AppCompat.Light">
@@ -12,6 +15,12 @@
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
         <item name="actionMenuTextColor">@color/green_text_color</item>
         <item name="android:statusBarColor">@color/status_bar_color</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
     <!-- From: file:/Users/Kahye/Documents/ComDoc/comdoc-android/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-v21/values-v21.xml -->
     <eat-comment/>

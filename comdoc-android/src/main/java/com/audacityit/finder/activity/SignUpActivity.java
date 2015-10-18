@@ -163,10 +163,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        mHttpClient.post("http://40.74.139.156:1337/signup", param, new AsyncHttpResponseHandler() {
+        mHttpClient.post("http://40.74.139.156:1337/register/user", param, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                Toast.makeText(getApplicationContext(),"sucess",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"success",Toast.LENGTH_SHORT).show();
                 Intent landing = new Intent(SignUpActivity.this, LandingActivity.class);
 
                 startActivity(landing);
