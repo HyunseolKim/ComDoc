@@ -712,6 +712,35 @@ app.controller('MypageUserSheetDetailController', function($scope, $http, ROOT) 
 			ROOT+'/assets/img/big/big-5.jpg'
 		]
 	};
+
+	$scope.submitSheetForm = function(){
+
+    // Set the loading state (i.e. show loading spinner)
+    $scope.sheetForm.loading = true;
+
+    if($scope.sheetForm.username) {
+    	$http.post('/insert/sheet', {
+    	  location: $scope.sheetForm.location,
+	      address: $scope.sheetForm.address,
+	      requester_phone: $scope.sheetForm.requester_phone,
+	      computer_type: $scope.sheetForm.computer_type,
+	      brand: $scope.sheetForm.brand,
+	      used_year: $scope.sheetForm.used_year,
+	      trouble_type: $scope.sheetForm.trouble_type,
+	      trouble_detail: $scope.sheetForm.trouble_detail,
+	      available_time: $scope.sheetForm.available_time,
+    	})
+    	.then(function onSuccess(sailsResponse){
+      window.location = '/';
+	    })
+	    .catch(function onError(sailsResponse){
+
+	    })
+	    .finally(function eitherWay(){
+	      $scope.sheetForm.loading = false;
+	    })
+    	}
+	}
 });
 
 app.controller('MypageCompanySheetDetailController', function($scope, $http, ROOT) {

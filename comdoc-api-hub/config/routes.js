@@ -71,9 +71,10 @@ module.exports.routes = {
   'POST /login/user': 'UserController.login', 
   'POST /login/company': 'CompanyController.login',
   'GET /logout': 'UserController.logout',
+
+  //Sheet enrollment
+  'POST /insert/sheet' : 'SheetController.insertSheet',
   
-
-
 
   'GET /loginAPI' : 'UserController.loginAPI'
 
