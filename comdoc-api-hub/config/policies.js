@@ -31,7 +31,11 @@ module.exports.policies = {
     restricted: ['sessionAuth'],
     open: true,
     jwt: ['hasJsonWebToken']
+  },
+  PageController: {
+    showHomePage: ['sessionAuth']
   }
+
 
   /***************************************************************************
   *                                                                          *

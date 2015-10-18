@@ -642,7 +642,31 @@ app.controller('ComponentsController', function($scope) {
 	// Stuff goes here!!!
 });
 
-app.controller('MypageUserController', function($scope, ROOT) {
+app.controller('MypageUserController', function($scope, $http, ROOT) {
+	$scope.Root = ROOT;
+	$scope.top = {
+		backstretch: [ 
+			ROOT+'/assets/img/big/big-3.jpg',
+			ROOT+'/assets/img/big/big-5.jpg'
+		]
+	};
+
+	var sheet = $scope.suggestionSheet = {
+		suggest: '',
+		owner: '',
+		expect_price: '',
+		expect_period: '',
+		comment: '',
+		status: '',
+		visit_time: '',
+		engineer: ''
+	};
+	
+	
+
+});
+
+app.controller('MypageCompanyController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -652,17 +676,7 @@ app.controller('MypageUserController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageCompanyController', function($scope, ROOT) {
-	$scope.Root = ROOT;
-	$scope.top = {
-		backstretch: [ 
-			ROOT+'/assets/img/big/big-3.jpg',
-			ROOT+'/assets/img/big/big-5.jpg'
-		]
-	};
-});
-
-app.controller('MypageUserSheetController', function($scope, ROOT) {
+app.controller('MypageUserSheetController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -680,7 +694,7 @@ app.controller('MypageUserSheetController', function($scope, ROOT) {
 	}
 });
 
-app.controller('MypageCompanyRequestSheetController', function($scope, ROOT) {
+app.controller('MypageCompanyRequestSheetController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -690,7 +704,7 @@ app.controller('MypageCompanyRequestSheetController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
+app.controller('MypageUserSheetDetailController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -700,7 +714,7 @@ app.controller('MypageUserSheetDetailController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
+app.controller('MypageCompanySheetDetailController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
@@ -710,7 +724,7 @@ app.controller('MypageCompanySheetDetailController', function($scope, ROOT) {
 	};
 });
 
-app.controller('MypageCompanyRequestSheetDetailController', function($scope, ROOT) {
+app.controller('MypageCompanyRequestSheetDetailController', function($scope, $http, ROOT) {
 	$scope.Root = ROOT;
 	$scope.top = {
 		backstretch: [ 
