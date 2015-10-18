@@ -4,9 +4,21 @@
  * @description :: Server-side logic for managing sheets
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var async = require('async');
 
 module.exports = {
 	
+	/**
+	* Sheet RESTful API GET
+	* API Route : GET /sheets?skip=0&limit=30&where={}&sort=id ASC
+	*/
+	find: find,
+	/**
+	* Sheet RESTful API GET One
+	* API Route : GET /sheets/:sheetId
+	*/
+	findOne : findOne,
+
 	/**
 	* Insert Sheet Data
 	*/
@@ -41,4 +53,64 @@ module.exports = {
 	        });
 	}
 };
+
+function find(req,res){
+	async.waterfall([
+		findSheets,
+		matchLikes,
+	], serviceUtil.reponse(req, res));
+
+	// 견적서 조회
+	function findSheets(cb) {
+		var criteria = {
+			skip: parseInt(req.query.skip)		|| 0,
+			limit: parseInt(req.query.limit)	|| 30,
+			sort: req.query.sort 				|| 'id ASC',
+			where: req.query.where
+		};
+
+		// string to JSON
+		if (criteria.where) {
+			try {
+				criteria.where = JSON.parse(criteria.where);
+			}
+			catch (e) {
+				return cb(e);
+			}
+		}
+		else {
+			delete criteria.where;
+		}
+
+		var query = Sheet.find(criteria);
+
+		query
+		.then(function(sheets) {
+			return cb(null, sheets);
+		})
+		.catch(function(error) {
+			return cb(error);
+		});
+	}
+
+}
+
+function findOne(req, res) {
+   async.waterfall([
+
+	   findSheet,
+
+   ], serviceUtil.response(req, res));
+
+   function findSheet(cb) {
+	   Sheet
+	   .findOne({
+		   id: req.param('id'),
+	   })
+	   .then(function(sheet) {
+		   return cb(null, sheet);
+	   })
+	   .catch(cb);
+   }
+}
 
